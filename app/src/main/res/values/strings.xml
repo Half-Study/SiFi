@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SiFi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nickname_fragment_title">닉네임을 만들어볼까요?</string>
+    <string name="nickname_fragment_edittext">닉네임을 입력해주세.</string>
+    <string name="nickname_fragment_content">최대 8자.</string>
+
+</resources>
