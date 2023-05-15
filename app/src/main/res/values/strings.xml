@@ -3,7 +3,29 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nickname_fragment_title">닉네임을 만들어볼까요?</string>
-    <string name="nickname_fragment_edittext">닉네임을 입력해주세.</string>
-    <string name="nickname_fragment_content">최대 8자.</string>
+    <string name="nickname_fragment_edittext">닉네임을 입력해주세요.</string>
+    <string name="nickname_fragment_content">최대 8자</string>
+    <string name="activityRegion_fragment_title">주로 활동하는 지역은 어디인가요?</string>
+    <string name="activityRegion_fragment_description">선택하신 지역의 친구들을 만날 수 있어요.</string>
+    <string name="activityRegion_fragment_city">시흥시</string>
+    <string name="activityRegion_fragment_region1">대야동</string>
+    <string name="activityRegion_fragment_region2">신천동</string>
+    <string name="activityRegion_fragment_region3">신현동</string>
+    <string name="activityRegion_fragment_region4">은행동</string>
+    <string name="activityRegion_fragment_region5">매화동</string>
+    <string name="activityRegion_fragment_region6">목감동</string>
+    <string name="activityRegion_fragment_region7">군자동</string>
+    <string name="activityRegion_fragment_region8">월곶동</string>
+    <string name="activityRegion_fragment_region9">정왕본동</string>
+    <string name="activityRegion_fragment_region10">정왕1동</string>
+    <string name="activityRegion_fragment_region11">정왕2동</string>
+    <string name="activityRegion_fragment_region12">정왕3동</string>
+    <string name="activityRegion_fragment_region13">정왕4동</string>
+    <string name="activityRegion_fragment_region14">배곧1동</string>
+    <string name="activityRegion_fragment_region15">배곧2동</string>
+    <string name="activityRegion_fragment_region16">과림동</string>
+    <string name="activityRegion_fragment_region17">연성동</string>
+    <string name="activityRegion_fragment_region18">장곡동</string>
+    <string name="activityRegion_fragment_region19">능곡동</string>
 
 </resources>

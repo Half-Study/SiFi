@@ -2,6 +2,7 @@ package com.example.sifi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.viewpager2.widget.ViewPager2
 import com.example.sifi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,8 +22,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeFragment() {
+//        val transaction = supportFragmentManager.beginTransaction()
+//            .add(R.id.frameLayout, NicknameFragment())
+//        transaction.commit()
         val transaction = supportFragmentManager.beginTransaction()
-            .add(R.id.frameLayout, NicknameFragment())
+            .add(R.id.frameLayout, ActivityRegionFragment())
         transaction.commit()
     }
 }
