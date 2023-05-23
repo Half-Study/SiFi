@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NicknameFragment">
+    tools:context=".profileaddsetting.NicknameFragment"
+    android:id="@+id/region_fragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -30,7 +31,8 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_gravity="center"/>
         <NumberPicker
             android:id="@+id/numberPicker"
             android:layout_width="0dp"

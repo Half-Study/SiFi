@@ -18,7 +18,7 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="프라그먼트 체인지"/>
+        android:text="프로필 추가 설정 액티비티"/>
 
 
 

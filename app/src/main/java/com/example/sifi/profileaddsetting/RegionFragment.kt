@@ -1,19 +1,18 @@
-package com.example.sifi
+package com.example.sifi.profileaddsetting
 
-import android.content.AbstractThreadedSyncAdapter
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
-import com.example.sifi.databinding.FragmentActivityRegionBinding
+import androidx.fragment.app.Fragment
+import com.example.sifi.R
+import com.example.sifi.databinding.FragmentRegionBinding
 
-class ActivityRegionFragment : Fragment() {
+class RegionFragment : Fragment() /*, ProfileSettingActivity.onBackPressedListener */{
     //    lateinit var adapter: RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolder>
-    lateinit var binding: FragmentActivityRegionBinding
+    lateinit var binding: FragmentRegionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +25,7 @@ class ActivityRegionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentActivityRegionBinding.inflate(inflater, container, false)
+        binding = FragmentRegionBinding.inflate(inflater, container, false)
         setupNumberPickerForStringValues()
         return binding.root
     }
@@ -39,10 +38,10 @@ class ActivityRegionFragment : Fragment() {
             it.maxValue = list.size - 1
             it.displayedValues = list
             it.wrapSelectorWheel = true
-            it.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + list[oldVal] + " to " + list[newVal]
-                Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-            }
+//            it.setOnValueChangedListener { picker, oldVal, newVal ->
+//                val text = "Changed from " + list[oldVal] + " to " + list[newVal]
+//                Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+//            }
         }
     }
 
@@ -67,4 +66,9 @@ class ActivityRegionFragment : Fragment() {
         getString(R.string.activityRegion_fragment_region18),
         getString(R.string.activityRegion_fragment_region19)
     )
+
+//    override fun onBackPressed() {
+//        Log.d("daeYoung", "지역 프라그먼트 뒤로가기 실행")
+//        requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
+//    }
 }
