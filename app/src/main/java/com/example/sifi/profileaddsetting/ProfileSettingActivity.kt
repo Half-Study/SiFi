@@ -20,7 +20,8 @@ class ProfileSettingActivity : AppCompatActivity() {
     private val fragmentList: List<Fragment> = listOf(
         RegionFragment(),
         NicknameFragment(),
-        MBTIFragment()
+        HobbyFragment(),
+        MBTIFragment(),
     )
 
     private lateinit var nextBtn: Button
