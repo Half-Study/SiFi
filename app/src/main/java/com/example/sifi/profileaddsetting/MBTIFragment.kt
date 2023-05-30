@@ -15,10 +15,6 @@ class MBTIFragment : Fragment() {
     ): View? {
 
         val view =  inflater.inflate(R.layout.fragment_mbti, container, false)
-
-
-
-
         return view
     }
 
