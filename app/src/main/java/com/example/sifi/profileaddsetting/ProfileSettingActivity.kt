@@ -1,23 +1,32 @@
 package com.example.sifi.profileaddsetting
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sifi.R
 import com.example.sifi.databinding.ActivityProfileSettingBinding
+import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 
 class ProfileSettingActivity : AppCompatActivity() {
 
     private val fragmentList: List<Fragment> = listOf(
         RegionFragment(),
-        NicknameFragment()
+        NicknameFragment(),
+        MBTIFragment()
     )
 
     private lateinit var nextBtn: Button
+    private lateinit var progressBar: ProgressBar
+    private lateinit var nickNameEdit: EditText
+
 
     private var cursor = 1
 
@@ -28,6 +37,7 @@ class ProfileSettingActivity : AppCompatActivity() {
             if (cursor > 0) {
                 supportFragmentManager.popBackStack()
                 cursor--
+                progressBar.setProgress(progressBar.progress -  10)
             }
         }
     }
@@ -39,6 +49,7 @@ class ProfileSettingActivity : AppCompatActivity() {
         this.onBackPressedDispatcher.addCallback(this, callback)
 
         nextBtn = binding.nextBtn
+        progressBar = binding.progress
 
         val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
@@ -55,28 +66,19 @@ class ProfileSettingActivity : AppCompatActivity() {
             if (cursor < fragmentList.size) {
                 Log.d("daeYoung", "${cursor}, ${fragmentList[cursor]} " )
                 changeFragment(fragmentList[cursor++])
+                progressBar.setProgress(progressBar.progress + 10)
+//                getInterval().subscribe {
+//                    progressBar.setProgress(progressBar.progress + it.toInt())
+//                }
+            }
+            when(cursor) {
+                1 -> {}
+                2 -> {}
+                else -> {}
             }
         }
 
     }
-
-//    interface onBackPressedListener {
-//        fun onBackPressed()
-//    }
-//
-//    override fun onBackPressed() {
-//        //아래와 같은 코드를 추가하도록 한다
-//        //해당 엑티비티에서 띄운 프래그먼트에서 뒤로가기를 누르게 되면 프래그먼트에서 구현한 onBackPressed 함수가 실행되게 된다.
-//        val fragmentList = supportFragmentManager.fragments
-//        Log.d("daeYoung", "대괄호: ${fragmentList}")
-//        for (fragment in fragmentList) {
-//            if (fragment is onBackPressedListener) {
-//                (fragment as onBackPressedListener).onBackPressed()
-//                return
-//            }
-//        }
-//
-//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -85,6 +87,7 @@ class ProfileSettingActivity : AppCompatActivity() {
                 if (cursor > 0) {
                     supportFragmentManager.popBackStack()
                     cursor--
+                    progressBar.setProgress(progressBar.progress - 10)
                 }
             }
         }
@@ -98,4 +101,10 @@ class ProfileSettingActivity : AppCompatActivity() {
         transaction.commit()
     }
 
+//    private fun getInterval(): Observable<Long> =
+//        Observable.interval(100L, TimeUnit.MILLISECONDS).map { interval ->
+//            interval + 10
+//        }.take(1)
+
 }
+

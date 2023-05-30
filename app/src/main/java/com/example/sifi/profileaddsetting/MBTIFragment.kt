@@ -1,11 +1,11 @@
-package com.example.sifi
+package com.example.sifi.profileaddsetting
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.example.sifi.R
 
 
 class MBTIFragment : Fragment() {
@@ -14,7 +14,7 @@ class MBTIFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view =  inflater.inflate(R.layout.fragment_m_b_t_i, container, false)
+        val view =  inflater.inflate(R.layout.fragment_mbti, container, false)
 
 
 
