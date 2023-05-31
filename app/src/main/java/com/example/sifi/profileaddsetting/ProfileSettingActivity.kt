@@ -64,18 +64,23 @@ class ProfileSettingActivity : AppCompatActivity() {
 
 
         nextBtn.setOnClickListener {
+
             if (cursor < fragmentList.size) {
                 Log.d("daeYoung", "${cursor}, ${fragmentList[cursor]} " )
+                when(cursor) {
+                    1 -> {
+
+//                        Log.d("daeYoung", "regionFragment" )
+//                        val fragment = fragmentList[0] as RegionFragment
+//                        fragment.receiveData()
+                    }
+                    2 -> {}
+                    else -> {}
+                }
                 changeFragment(fragmentList[cursor++])
                 progressBar.setProgress(progressBar.progress + 10)
-//                getInterval().subscribe {
-//                    progressBar.setProgress(progressBar.progress + it.toInt())
-//                }
-            }
-            when(cursor) {
-                1 -> {}
-                2 -> {}
-                else -> {}
+
+
             }
         }
 
@@ -102,10 +107,9 @@ class ProfileSettingActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-//    private fun getInterval(): Observable<Long> =
-//        Observable.interval(100L, TimeUnit.MILLISECONDS).map { interval ->
-//            interval + 10
-//        }.take(1)
+    fun receiveData(fragment: Fragment, data: String) {
+        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: $data")
+    }
 
 }
 

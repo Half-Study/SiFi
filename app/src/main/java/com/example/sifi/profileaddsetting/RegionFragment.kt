@@ -5,14 +5,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.sifi.MainActivity
 import com.example.sifi.R
 import com.example.sifi.databinding.FragmentRegionBinding
 
-class RegionFragment : Fragment() /*, ProfileSettingActivity.onBackPressedListener */{
-    //    lateinit var adapter: RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolder>
+class RegionFragment : Fragment() {
+    override fun onStop() {
+        super.onStop()
+        Log.d("daeYoung", "지역 프라그먼트 onStop() 호출")
+        val mainActivity = activity as ProfileSettingActivity
+        mainActivity.receiveData(this, "")
+
+    }
+
     lateinit var binding: FragmentRegionBinding
+    lateinit var numberPicker: NumberPicker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +36,16 @@ class RegionFragment : Fragment() /*, ProfileSettingActivity.onBackPressedListen
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRegionBinding.inflate(inflater, container, false)
+        numberPicker = binding.numberPicker
+
         setupNumberPickerForStringValues()
+
+
+
         return binding.root
     }
 
     private fun setupNumberPickerForStringValues() {
-        val numberPicker = binding.numberPicker
         val list = getRegionList()
         numberPicker.also {
             it.minValue = 0
@@ -67,8 +81,5 @@ class RegionFragment : Fragment() /*, ProfileSettingActivity.onBackPressedListen
         getString(R.string.activityRegion_fragment_region19)
     )
 
-//    override fun onBackPressed() {
-//        Log.d("daeYoung", "지역 프라그먼트 뒤로가기 실행")
-//        requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
-//    }
+
 }

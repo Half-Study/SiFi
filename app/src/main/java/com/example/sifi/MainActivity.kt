@@ -12,26 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val btn = binding.btn
 
-        btn.setOnClickListener {
-            // 회원가입 액티비티 종료
-            changeProfileSettingActivity()
-        }
-
-
-
-
-    }
-    private fun changeProfileSettingActivity() {
         startActivity(Intent(this, ProfileSettingActivity::class.java))
-    }
-    private fun changeFragment() {
-//        val transaction = supportFragmentManager.beginTransaction()
-//            .add(R.id.frameLayout, NicknameFragment())
-//        transaction.commit()
-        val transaction = supportFragmentManager.beginTransaction()
-            .add(R.id.frameLayout, RegionFragment())
-        transaction.commit()
+
     }
 }
