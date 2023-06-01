@@ -11,7 +11,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sifi.R
-import com.example.sifi.Fragment.SexFragment
+import com.example.sifi.profileaddsetting.SexFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class CreateAccountActivity : AppCompatActivity() {

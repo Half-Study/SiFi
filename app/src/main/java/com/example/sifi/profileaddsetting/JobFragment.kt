@@ -1,4 +1,4 @@
-package com.example.sifi.Fragment
+package com.example.sifi.profileaddsetting
 
 import android.media.Image
 import android.os.Bundle

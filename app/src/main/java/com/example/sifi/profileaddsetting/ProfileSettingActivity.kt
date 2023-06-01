@@ -1,6 +1,5 @@
 package com.example.sifi.profileaddsetting
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -12,16 +11,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sifi.R
 import com.example.sifi.databinding.ActivityProfileSettingBinding
-import io.reactivex.Observable
-import java.util.concurrent.TimeUnit
 
 class ProfileSettingActivity : AppCompatActivity() {
 
     private val fragmentList: List<Fragment> = listOf(
+        SexFragment(),
         RegionFragment(),
         NicknameFragment(),
+        JobFragment(),
         HobbyFragment(),
         MBTIFragment(),
+        IntroduceFragment(),
+        FinishFragment(),
     )
 
     private lateinit var nextBtn: Button
@@ -50,7 +51,7 @@ class ProfileSettingActivity : AppCompatActivity() {
         this.onBackPressedDispatcher.addCallback(this, callback)
 
         nextBtn = binding.nextBtn
-        progressBar = binding.progress
+        progressBar = binding.progress.apply { progress = 13 }
 
         val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
@@ -58,7 +59,7 @@ class ProfileSettingActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.frameLayout, RegionFragment())
+            .add(R.id.frameLayout, SexFragment())
             .addToBackStack(null)
             .commit()
 
@@ -78,7 +79,7 @@ class ProfileSettingActivity : AppCompatActivity() {
                     else -> {}
                 }
                 changeFragment(fragmentList[cursor++])
-                progressBar.setProgress(progressBar.progress + 10)
+                progressBar.progress = progressBar.progress + 13
 
 
             }
@@ -93,7 +94,7 @@ class ProfileSettingActivity : AppCompatActivity() {
                 if (cursor > 0) {
                     supportFragmentManager.popBackStack()
                     cursor--
-                    progressBar.setProgress(progressBar.progress - 10)
+                    progressBar.progress = progressBar.progress - 13
                 }
             }
         }
