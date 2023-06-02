@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,19 +11,20 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_hobby_multichoice"
-        android:textSize="10sp"
-        android:textColor="#858585"/>
+        android:textColor="#858585"
+        android:textSize="10sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingTop="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,31 +34,43 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/movie"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/netflix"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/showping"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby4"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/show"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
         </LinearLayout>
 
@@ -70,33 +82,45 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/party"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby6"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/interior"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby7"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/health"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby8"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/study"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
         </LinearLayout>
 
@@ -108,31 +132,43 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby9"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/baking"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby10"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/golf"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby11"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/composer"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby12"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/yoga"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
         </LinearLayout>
 
@@ -144,31 +180,43 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby13"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/archer"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby14"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/hiking"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby15"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/pcbang"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby16"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/sing"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
         </LinearLayout>
 
@@ -180,31 +228,43 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby17"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/cartoon"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby18"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/camping"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby19"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/drive"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby20"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/game"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
         </LinearLayout>
 
@@ -216,30 +276,45 @@
             android:orientation="horizontal">
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby21"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/band"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby22"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/dance"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
 
             <android.widget.Button
-                android:layout_width="wrap_content"
+                android:id="@+id/hobby23"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_button"
                 android:text="@string/sul"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/roundcorner"/>
+                android:textColor="@drawable/selector_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1" />
+
 
         </LinearLayout>
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>

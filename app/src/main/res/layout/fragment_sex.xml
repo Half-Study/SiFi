@@ -21,14 +21,14 @@
             android:textSize="25sp"
             android:text="처음 오셧군요, 반가워요!"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@drawable/selector_text"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"
+            android:textColor="@drawable/selector_text"
             android:text="회원님의 성별은 무엇인가요?"/>
     </LinearLayout>
 

@@ -20,27 +20,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/job1"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="학생"
-            android:layout_marginLeft="30dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/job2"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="아르바이트"
             android:layout_marginLeft="45dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -50,27 +52,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/job3"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="프리랜서"
-            android:layout_marginLeft="30dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/job4"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="회사원"
             android:layout_marginLeft="45dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -80,27 +84,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/job5"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="의료직"
-            android:layout_marginLeft="30dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
         <TextView
+            android:id="@+id/job6"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="전문직"
             android:layout_marginLeft="45dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -109,27 +115,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/job7"
             android:layout_width="130dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/round_button"
+            android:background="@drawable/selector_button"
             android:gravity="center_horizontal"
             android:text="자영업"
-            android:textColor="@color/black"
+            android:textColor="@drawable/selector_text"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/job8"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="사업가"
             android:layout_marginLeft="45dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -138,27 +146,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/job9"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="군인"
-            android:layout_marginLeft="30dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20dp"/>
 
         <TextView
+            android:id="@+id/job10"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="취준생"
             android:layout_marginLeft="45dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:background="@drawable/round_button"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_button"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -168,20 +178,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/job11"
             android:layout_width="130dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/round_button"
+            android:background="@drawable/selector_button"
             android:gravity="center_horizontal"
             android:text="기타"
-            android:textColor="@color/black"
+            android:textColor="@drawable/selector_text"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
 

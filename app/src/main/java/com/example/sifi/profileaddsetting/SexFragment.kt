@@ -12,9 +12,17 @@ import com.example.sifi.databinding.FragmentSexBinding
 
 class SexFragment : Fragment() {
 
-    lateinit var binding: FragmentSexBinding
-    lateinit var btnMale: AppCompatButton
-    lateinit var btnFemale: Button
+    private lateinit var binding: FragmentSexBinding
+    private lateinit var btnMale: AppCompatButton
+    private lateinit var btnFemale: Button
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("daeYoung", "성별 프라그먼트 onStop() 호출")
+        val mainActivity = activity as ProfileSettingActivity
+        if(btnMale.isSelected) { mainActivity.receiveData(this, mapOf("sex" to btnMale.text.toString()) ) }
+        else { mainActivity.receiveData(this, mapOf("sex" to btnMale.text.toString())) }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

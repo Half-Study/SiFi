@@ -67,7 +67,7 @@ class ProfileSettingActivity : AppCompatActivity() {
         nextBtn.setOnClickListener {
 
             if (cursor < fragmentList.size) {
-                Log.d("daeYoung", "${cursor}, ${fragmentList[cursor]} " )
+//                Log.d("daeYoung", "${cursor}, ${fragmentList[cursor]} " )
                 when(cursor) {
                     1 -> {
 
@@ -108,8 +108,12 @@ class ProfileSettingActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun receiveData(fragment: Fragment, data: String) {
-        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: $data")
+    fun receiveData(fragment: Fragment, data: Map<String, String>) {
+        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: ${data.toString()}")
+    }
+
+    fun receiveData2(fragment: Fragment, data: Map<String, List<String>>) {
+        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: ${data.toString()}")
     }
 
 }
