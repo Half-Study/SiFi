@@ -10,9 +10,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:layout_marginBottom="20dp"
         android:text="회원님의 MBTI를 알려주세요"
         android:textColor="@color/black"
-        android:layout_marginBottom="20dp"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -20,41 +20,224 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/roundbutton"
-            android:contentDescription="ISTJ"
-            android:scaleType="fitCenter"
-            android:src="@drawable/istj" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/isfj" />
+            <ImageButton
+                android:id="@+id/ISTJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:contentDescription="ISTJ"
+                android:scaleType="fitCenter"
+                android:src="@drawable/istj" />
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/infj" />
+            <TextView
+                android:id="@+id/ISTJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ISTJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/intj" />
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/ISFJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/isfj" />
+
+            <TextView
+                android:id="@+id/ISFJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ISFJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/INFJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/infj" />
+
+            <TextView
+                android:id="@+id/INFJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="INFJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/INTJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/intj" />
+
+            <TextView
+                android:id="@+id/INTJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="INTJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/ISTP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/istp" />
+
+            <TextView
+                android:id="@+id/ISTP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ISTP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/ISFP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/isfp" />
+
+            <TextView
+                android:id="@+id/ISFP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ISFP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/INFP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/infp" />
+
+            <TextView
+                android:id="@+id/INFP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="INFP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/INTP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/intp" />
+
+            <TextView
+                android:id="@+id/INTP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="INTP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -65,221 +248,109 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="25dp"
-            android:includeFontPadding="false"
-            android:text="ISTJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="14dp"
-            android:includeFontPadding="false"
-            android:text="ISFJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/ESTP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/estp" />
 
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="14dp"
-            android:includeFontPadding="false"
-            android:text="INFJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/ESTP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ESTP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="14dp"
-            android:includeFontPadding="false"
-            android:text="INTJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/istp" />
-
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/isfp" />
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+            <ImageButton
+                android:id="@+id/ESFP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/esfp" />
+
+            <TextView
+                android:id="@+id/ESFP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ESFP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/infp" />
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+            <ImageButton
+                android:id="@+id/ENFP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/enfp" />
+
+            <TextView
+                android:id="@+id/ENFP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ENFP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/intp" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/ENTP"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/entp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/ENTP_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ENTP"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="25dp"
-            android:includeFontPadding="false"
-            android:text="ISTP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="14dp"
-            android:includeFontPadding="false"
-            android:text="ISFP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:includeFontPadding="false"
-            android:text="INFP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:includeFontPadding="false"
-            android:text="INTP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/estp" />
-
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/esfp" />
-
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/enfp" />
-
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/entp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="25dp"
-            android:includeFontPadding="false"
-            android:text="ESTP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="14dp"
-            android:includeFontPadding="false"
-            android:text="ESFP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:includeFontPadding="false"
-            android:text="ENFP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:includeFontPadding="false"
-            android:text="ENTP"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -290,88 +361,108 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/estj" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+            <ImageButton
+                android:id="@+id/ESTJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/estj" />
+
+            <TextView
+                android:id="@+id/ESTJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ESTJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/esfj" />
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+            <ImageButton
+                android:id="@+id/ESFJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/esfj" />
+
+            <TextView
+                android:id="@+id/ESFJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ESFJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/enfj" />
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="73dp"
-            android:layout_height="70dp"
+            <ImageButton
+                android:id="@+id/ENFJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/enfj" />
+
+            <TextView
+                android:id="@+id/ENFJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ENFJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="13dp"
-            android:background="@drawable/roundbutton"
-            android:scaleType="fitCenter"
-            android:src="@drawable/entj" />
+            android:orientation="vertical">
 
+            <ImageButton
+                android:id="@+id/ENTJ"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/selector_mbti_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/entj" />
+
+            <TextView
+                android:id="@+id/ENTJ_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:text="ENTJ"
+                android:textColor="@drawable/selector_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="25dp"
-            android:includeFontPadding="false"
-            android:text="ESTJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="14dp"
-            android:includeFontPadding="false"
-            android:text="ESFJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:includeFontPadding="false"
-            android:text="ENFJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="73dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:includeFontPadding="false"
-            android:text="ENTJ"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
 
 </LinearLayout>

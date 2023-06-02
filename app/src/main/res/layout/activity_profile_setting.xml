@@ -27,11 +27,13 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-        <Button
+        <android.widget.Button
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/activity_profile_setting_next_button"
-            android:backgroundTint="@color/main_blue"/>
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main_blue"
+            android:background="@drawable/selector_next_button"/>
 
 </LinearLayout>

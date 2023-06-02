@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sifi.R
 import com.example.sifi.databinding.ActivityProfileSettingBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class ProfileSettingActivity : AppCompatActivity() {
 
@@ -29,7 +34,6 @@ class ProfileSettingActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var nickNameEdit: EditText
 
-
     private var cursor = 1
 
     private val callback = object : OnBackPressedCallback(true) {
@@ -40,6 +44,7 @@ class ProfileSettingActivity : AppCompatActivity() {
                 supportFragmentManager.popBackStack()
                 cursor--
                 progressBar.setProgress(progressBar.progress -  10)
+                changeState()
             }
         }
     }
@@ -48,6 +53,7 @@ class ProfileSettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityProfileSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         this.onBackPressedDispatcher.addCallback(this, callback)
 
         nextBtn = binding.nextBtn
@@ -65,26 +71,42 @@ class ProfileSettingActivity : AppCompatActivity() {
 
 
         nextBtn.setOnClickListener {
-
             if (cursor < fragmentList.size) {
-//                Log.d("daeYoung", "${cursor}, ${fragmentList[cursor]} " )
-                when(cursor) {
-                    1 -> {
-
-//                        Log.d("daeYoung", "regionFragment" )
-//                        val fragment = fragmentList[0] as RegionFragment
-//                        fragment.receiveData()
-                    }
-                    2 -> {}
-                    else -> {}
-                }
                 changeFragment(fragmentList[cursor++])
                 progressBar.progress = progressBar.progress + 13
-
+                changeState()
 
             }
         }
 
+    }
+
+    fun changeState() {
+        when(cursor) {
+            1 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+
+            }
+            2 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+
+            }
+            5 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+                nextBtn.isEnabled = true
+            }
+            6 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+                val mbtiFragment = fragmentList[5] as MBTIFragment
+                CoroutineScope(Dispatchers.Main).launch {
+                    mbtiFragment.isNext().collectLatest {
+                        nextBtn.isEnabled = it.isNotBlank()
+                    }
+                }
+
+            }
+            else -> {}
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -95,6 +117,7 @@ class ProfileSettingActivity : AppCompatActivity() {
                     supportFragmentManager.popBackStack()
                     cursor--
                     progressBar.progress = progressBar.progress - 13
+                    changeState()
                 }
             }
         }
