@@ -1,5 +1,6 @@
 package com.example.sifi.profileaddsetting
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.sifi.Login.LoginActivity
 import com.example.sifi.R
 import com.example.sifi.databinding.ActivityProfileSettingBinding
 import kotlinx.coroutines.CoroutineScope
@@ -96,6 +98,8 @@ class ProfileSettingActivity : AppCompatActivity() {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
 
             }
+            3 -> {}
+            4 -> {}
             5 -> {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
                 nextBtn.isEnabled = true
@@ -118,8 +122,9 @@ class ProfileSettingActivity : AppCompatActivity() {
             7 -> {
 
             }
-            else -> {
-                finish()
+            8 -> {
+                finishAffinity()
+                startActivity(Intent(this, LoginActivity::class.java))
             }
         }
     }
