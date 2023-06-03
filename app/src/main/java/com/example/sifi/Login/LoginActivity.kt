@@ -5,14 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.sifi.MainActivity
 import com.example.sifi.R
-import com.example.sifi.profileaddsetting.ProfileSettingActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
@@ -67,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         createBtn.setOnClickListener {
-            var intent = Intent(this@LoginActivity, CreateAccountActivity::class.java)
+            var intent = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intent)
         }
     }

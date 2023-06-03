@@ -21,7 +21,7 @@
             android:name=".Board.BoardWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".Login.CreateAccountActivity"
+            android:name=".Login.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
