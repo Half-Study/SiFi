@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.sifi.databinding.FragmentMbtiBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -88,16 +91,20 @@ class MBTIFragment : Fragment() {
                 it.isSelected = !it.isSelected
                 textViewList[index].isSelected = !textViewList[index].isSelected
 
-                CoroutineScope(Dispatchers.Default).launch {
-                    if (it.isSelected) {
-                        currentMBTI.emit(textViewList[index].text.toString())
+                with(viewLifecycleOwner) {
+                    lifecycleScope.launch {
+                        repeatOnLifecycle(Lifecycle.State.CREATED) {
+                            if (it.isSelected) {
+                                currentMBTI.emit(textViewList[index].text.toString())
 //                        myViewModel.changeStateFlow(textViewList[index].text.toString())
-                    } else {
-                        currentMBTI.emit("")
+                            } else {
+                                currentMBTI.emit("")
 //                        myViewModel.changeStateFlow("")
-                    }
+                            }
 
-                    Log.d("daeYoung", "현재 MBTI: ${currentMBTI.firstOrNull()}")
+                            Log.d("daeYoung", "현재 MBTI: ${currentMBTI.firstOrNull()}")
+                        }
+                    }
                 }
 
                 textViewList.forEach {

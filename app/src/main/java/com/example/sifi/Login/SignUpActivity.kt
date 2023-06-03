@@ -43,7 +43,6 @@ class SignUpActivity : AppCompatActivity() {
             if (editEmail.text.toString().isEmpty() || editPass.text.toString().isEmpty()) {
                 Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else {
-
                 auth.createUserWithEmailAndPassword(
                     editEmail.text.toString(),
                     editPass.text.toString()
