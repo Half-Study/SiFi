@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:text="@string/activity_profile_setting_next_button"
             android:textColor="@color/white"
-            android:backgroundTint="@color/main_blue"
             android:background="@drawable/selector_next_button"/>
 
 </LinearLayout>

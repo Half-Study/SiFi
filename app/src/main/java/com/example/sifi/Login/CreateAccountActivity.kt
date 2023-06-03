@@ -1,7 +1,9 @@
 package com.example.sifi.Login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.Profile
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -11,6 +13,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sifi.R
+import com.example.sifi.profileaddsetting.ProfileSettingActivity
 import com.example.sifi.profileaddsetting.SexFragment
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,7 +37,6 @@ class CreateAccountActivity : AppCompatActivity() {
         editEmail = findViewById(R.id.editEmail)
         editPass = findViewById(R.id.editPass)
         nextBtn = findViewById(R.id.btnNext)
-        container = findViewById(R.id.container)
         backImg = findViewById(R.id.backImage)
 
 
@@ -48,34 +50,24 @@ class CreateAccountActivity : AppCompatActivity() {
                         if(task.isSuccessful){
                             Log.d(TAG, "createUserWithEmail:success")
                             finish()
+                            startActivity(Intent(this, ProfileSettingActivity::class.java))
                         }else{
-                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                            Log.d("daeYoung", "fail: ${task.exception}")
                             Toast.makeText(
                                 baseContext, "Authentication failed.",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            editEmail?.setText("")
-                            editPass?.setText("")
+                            editEmail.setText("")
+                            editPass.setText("")
                             editEmail.requestFocus()
                         }
                     }
+
             }
-        }
-        nextBtn.setOnClickListener {
-            container.visibility = View.VISIBLE
-            loadFragment(SexFragment())
         }
 
         backImg.setOnClickListener {
             finish()
         }
-
-
-
-    }
-    private fun loadFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container,fragment)
-        transaction.commit()
     }
 }

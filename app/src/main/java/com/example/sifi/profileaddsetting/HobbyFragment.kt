@@ -1,6 +1,7 @@
 package com.example.sifi.profileaddsetting
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ class HobbyFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
+        Log.d("daeYoung", "Hobby 프라그먼트 onStop() 호출")
         val selectHobbyList = hobbyList.filter { it.isSelected }.map { it.text.toString() }
         val mainActivity = activity as ProfileSettingActivity
         mainActivity.receiveData2(this, mapOf("job" to selectHobbyList))

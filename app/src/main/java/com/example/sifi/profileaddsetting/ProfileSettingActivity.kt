@@ -9,15 +9,20 @@ import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.sifi.R
 import com.example.sifi.databinding.ActivityProfileSettingBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 
+
 class ProfileSettingActivity : AppCompatActivity() {
+//    lateinit var myViewModel: MyViewModel
+
 
     private val fragmentList: List<Fragment> = listOf(
         SexFragment(),
@@ -43,7 +48,7 @@ class ProfileSettingActivity : AppCompatActivity() {
             if (cursor > 0) {
                 supportFragmentManager.popBackStack()
                 cursor--
-                progressBar.setProgress(progressBar.progress -  10)
+                progressBar.setProgress(progressBar.progress -  13)
                 changeState()
             }
         }
@@ -53,6 +58,8 @@ class ProfileSettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityProfileSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // 뷰모델 사용
+//        myViewModel = ViewModelProvider(this)[MyViewM용del::class.java]
 
         this.onBackPressedDispatcher.addCallback(this, callback)
 
@@ -75,10 +82,8 @@ class ProfileSettingActivity : AppCompatActivity() {
                 changeFragment(fragmentList[cursor++])
                 progressBar.progress = progressBar.progress + 13
                 changeState()
-
             }
         }
-
     }
 
     fun changeState() {
@@ -99,13 +104,23 @@ class ProfileSettingActivity : AppCompatActivity() {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
                 val mbtiFragment = fragmentList[5] as MBTIFragment
                 CoroutineScope(Dispatchers.Main).launch {
-                    mbtiFragment.isNext().collectLatest {
+//                    myViewModel.stateFlow.collectLatest {
+//                        Log.d("daeYoung", "next 버튼의 상태: ${nextBtn.isEnabled}")
+//                        nextBtn.isEnabled = it.isNotBlank()
+//                    }
+                    // 뒤로 갔다가 앞으로 돌아올 때(5로 갔다가 6으로 오거나 ) 앞으로 갔다가 뒤로 돌아올 때(7로 갔다가 6으로 옴) 일 때 collectLatest가 중첩으로 실행됨
+                    val box = mbtiFragment.isNext().collectLatest {
                         nextBtn.isEnabled = it.isNotBlank()
+                        Log.d("daeYoung", "next 버튼의 상태: ${nextBtn.isEnabled}")
                     }
                 }
+            }
+            7 -> {
 
             }
-            else -> {}
+            else -> {
+                finish()
+            }
         }
     }
 

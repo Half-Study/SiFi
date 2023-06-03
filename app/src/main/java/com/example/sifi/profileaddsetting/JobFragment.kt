@@ -17,6 +17,8 @@ class JobFragment : Fragment() {
     private lateinit var jobList: List<TextView>
     override fun onStop() {
         super.onStop()
+        Log.d("daeYoung", "Job 프라그먼트 onStop() 호출")
+
         val mainActivity = activity as ProfileSettingActivity
         // 나중에 아래 코드 없애고 선택 안되면 다음 버튼 못 누르게 변경
         var selectJob: String = "선택 안됨"
