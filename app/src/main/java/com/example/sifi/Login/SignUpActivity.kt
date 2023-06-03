@@ -48,9 +48,13 @@ class SignUpActivity : AppCompatActivity() {
                     editPass.text.toString()
                 ).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        Log.d(TAG, "createUserWithEmail:success")
+                        // 가지고 realtimeDB에 접근
+                        Log.d("daeYoung", "현재 유저: ${auth.currentUser?.uid}")
                         finish()
-                        startActivity(Intent(this, ProfileSettingActivity::class.java))
+                        val intent = Intent(this, ProfileSettingActivity::class.java).also {
+                            it.putExtra("uid", auth.currentUser?.uid)
+                        }
+                        startActivity(intent)
                     } else {
                         Log.d("daeYoung", "fail: ${task.exception}")
                     }
@@ -66,11 +70,8 @@ class SignUpActivity : AppCompatActivity() {
                         is FirebaseAuthUserCollisionException -> {
                             Toast.makeText(this, "이미 가입되어있는 이메일입니다.", Toast.LENGTH_SHORT).show()
                         }
-
                     }
                 }
-                // 가지고 realtimeDB에 접근
-                Log.d("daeYoung", "현재 유저: ${auth.currentUser?.uid}")
             }
         }
 

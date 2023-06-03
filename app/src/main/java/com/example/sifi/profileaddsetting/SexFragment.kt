@@ -21,7 +21,7 @@ class SexFragment : Fragment() {
         Log.d("daeYoung", "성별 프라그먼트 onStop() 호출")
         val mainActivity = activity as ProfileSettingActivity
         if(btnMale.isSelected) { mainActivity.receiveData(this, mapOf("sex" to btnMale.text.toString()) ) }
-        else { mainActivity.receiveData(this, mapOf("sex" to btnMale.text.toString())) }
+        else { mainActivity.receiveData(this, mapOf("sex" to btnFemale.text.toString())) }
     }
 
     override fun onCreateView(
