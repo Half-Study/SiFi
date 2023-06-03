@@ -69,8 +69,8 @@ class SignUpActivity : AppCompatActivity() {
 
                     }
                 }
-
-
+                // 가지고 realtimeDB에 접근
+                Log.d("daeYoung", "현재 유저: ${auth.currentUser?.uid}")
             }
         }
 

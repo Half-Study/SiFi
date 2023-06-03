@@ -127,7 +127,7 @@ class ProfileSettingActivity : AppCompatActivity() {
 
             }
             8 -> {
-                finishAffinity()
+                finishAffinity()  // 화면 스택 전체 제거
                 startActivity(Intent(this, LoginActivity::class.java))
             }
         }
