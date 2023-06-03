@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.sifi.R
 import com.example.sifi.Utils.BoardModel
 import com.google.firebase.ktx.Firebase
@@ -41,6 +42,7 @@ class BoardListAdapter(val boardList : MutableList<BoardModel>): BaseAdapter() {
         title!!.text = boardList[position].title
         content!!.text = boardList[position].content
         time!!.text = boardList[position].time
+
 
 
 

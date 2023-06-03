@@ -21,11 +21,9 @@ class LoginActivity : AppCompatActivity() {
     lateinit var passwordEt: EditText
     lateinit var loginBtn: Button
     lateinit var auth : FirebaseAuth
-    lateinit var newBtn : Button
     lateinit var createBtn : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FirebaseApp.initializeApp(this@LoginActivity)
         setContentView(R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
 
