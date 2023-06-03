@@ -22,7 +22,7 @@
         <TextView
             android:layout_marginLeft="20dp"
             android:text="카테고리"
-            android:textColor="@color/black"
+            android:textColor="@drawable/selector_text"
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -41,7 +41,7 @@
                 android:background="@drawable/black_round"
                 android:layout_marginLeft="20dp"
                 android:text="술"
-                android:textColor="@color/black"
+                android:textColor="@drawable/selector_text"
                 android:textSize="20sp" />
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:background="@drawable/black_round"
-                android:textColor="@color/black"
+                android:textColor="@drawable/selector_text"
                 android:text="운동"
                 android:textSize="20sp" />
 
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="15dp"
                 android:background="@drawable/black_round"
                 android:text="식사"
-                android:textColor="@color/black"
+                android:textColor="@drawable/selector_text"
                 android:textSize="20sp" />
 
             <TextView
@@ -71,7 +71,7 @@
                 android:layout_marginLeft="15dp"
                 android:background="@drawable/black_round"
                 android:text="게임"
-                android:textColor="@color/black"
+                android:textColor="@drawable/selector_text"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="등록"
-            android:textColor="@color/black"/>
+            android:textColor="@drawable/selector_text"/>
 
 
 

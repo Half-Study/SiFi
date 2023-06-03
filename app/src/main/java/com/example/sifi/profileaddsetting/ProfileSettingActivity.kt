@@ -1,33 +1,46 @@
 package com.example.sifi.profileaddsetting
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.withStarted
+import com.example.sifi.Login.LoginActivity
 import com.example.sifi.R
+import com.example.sifi.data.User
 import com.example.sifi.databinding.ActivityProfileSettingBinding
-import io.reactivex.Observable
-import java.util.concurrent.TimeUnit
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProfileSettingActivity : AppCompatActivity() {
+//    lateinit var myViewModel: MyViewModel
+
+    val binding by lazy {
+        ActivityProfileSettingBinding.inflate(layoutInflater)
+    }
+    lateinit var uid: String
+    val database by lazy { Firebase.database }
+
+    val userData: MutableMap<String, Any> = mutableMapOf()
 
     private val fragmentList: List<Fragment> = listOf(
+        SexFragment(),
         RegionFragment(),
         NicknameFragment(),
+        JobFragment(),
         HobbyFragment(),
         MBTIFragment(),
+        IntroduceFragment(),
+        FinishFragment(),
     )
-
-    private lateinit var nextBtn: Button
-    private lateinit var progressBar: ProgressBar
-    private lateinit var nickNameEdit: EditText
-
 
     private var cursor = 1
 
@@ -38,52 +51,99 @@ class ProfileSettingActivity : AppCompatActivity() {
             if (cursor > 0) {
                 supportFragmentManager.popBackStack()
                 cursor--
-                progressBar.setProgress(progressBar.progress -  10)
+                decreaseProgress()
+                changeState()
             }
         }
     }
 
+    private val stepProgressAmount = 10
+
+    private fun increaseProgress() {
+        binding.progress.progress += stepProgressAmount
+    }
+
+    private fun decreaseProgress() {
+        binding.progress.progress -= stepProgressAmount
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityProfileSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         this.onBackPressedDispatcher.addCallback(this, callback)
 
-        nextBtn = binding.nextBtn
-        progressBar = binding.progress
+//        binding.progress.min = 0
+        binding.progress.max = stepProgressAmount * fragmentList.size
+        binding.progress.progress = stepProgressAmount
 
-        val toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
+        uid = intent.getStringExtra("uid") ?: ""
+
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.frameLayout, RegionFragment())
+            .add(R.id.frameLayout, SexFragment())
             .addToBackStack(null)
             .commit()
 
 
-        nextBtn.setOnClickListener {
-
+        binding.nextBtn.setOnClickListener {
             if (cursor < fragmentList.size) {
-                Log.d("daeYoung", "${cursor}, ${fragmentList[cursor]} " )
-                when(cursor) {
-                    1 -> {
-
-//                        Log.d("daeYoung", "regionFragment" )
-//                        val fragment = fragmentList[0] as RegionFragment
-//                        fragment.receiveData()
-                    }
-                    2 -> {}
-                    else -> {}
-                }
                 changeFragment(fragmentList[cursor++])
-                progressBar.setProgress(progressBar.progress + 10)
-
-
+                increaseProgress()
+                changeState()
             }
         }
+    }
 
+    fun changeState() {
+        when(cursor) {
+            1 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+            }
+            2 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+
+            }
+            3 -> {}
+            4 -> {}
+            5 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+                binding.nextBtn.isEnabled = true
+            }
+            6 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+                val mbtiFragment = fragmentList[5] as MBTIFragment
+
+                lifecycleScope.launch {
+                    mbtiFragment.withStarted {
+                        mbtiFragment.viewLifecycleOwner.lifecycleScope
+                    }.launch {
+                        mbtiFragment.isNext().collectLatest {
+                            withContext(Dispatchers.Main) {
+                                binding.nextBtn.isEnabled = it.isNotBlank()
+                            }
+                            Log.d("daeYoung", "next 버튼의 상태: ${binding.nextBtn.isEnabled}")
+                        }
+                    }
+                }
+            }
+            7 -> {}
+            8 -> {
+                val list = userData.values.toList()[0]
+                val user = User(userData.values.toList()[0].toString(), userData.values.toList()[1].toString())
+                if (uid.isNotBlank()) {
+                    val myRef = database.getReference("test")
+                    myRef.child(uid).setValue(user)
+                }
+
+
+                finishAffinity()  // 화면 스택 전체 제거
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -93,7 +153,8 @@ class ProfileSettingActivity : AppCompatActivity() {
                 if (cursor > 0) {
                     supportFragmentManager.popBackStack()
                     cursor--
-                    progressBar.setProgress(progressBar.progress - 10)
+                    decreaseProgress()
+                    changeState()
                 }
             }
         }
@@ -107,8 +168,25 @@ class ProfileSettingActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun receiveData(fragment: Fragment, data: String) {
-        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: $data")
+    fun receiveData(fragment: Fragment, data: Map<String, String>) {
+        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: ${data}")
+        Log.d("daeYoung", "${fragment.toString()} key: ${data.keys}")
+
+        val valueList = data.values.toList()[0]
+        when(val keyList = data.keys.toList()[0]) {
+            "sex" -> {
+                userData[keyList] = valueList
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
+            "region" -> {
+                userData[keyList] = valueList
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
+        }
+    }
+
+    fun receiveData2(fragment: Fragment, data: Map<String, List<String>>) {
+        Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: ${data.toString()}")
     }
 
 }
