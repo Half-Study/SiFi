@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/titleArea"
             android:text="category"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:layout_marginLeft="235dp"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
@@ -35,7 +35,7 @@
         <TextView
             android:id="@+id/timeArea"
             android:text="time"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"
             android:layout_width="wrap_content"

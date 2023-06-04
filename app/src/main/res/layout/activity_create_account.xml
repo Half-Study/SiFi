@@ -24,30 +24,58 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="회 원 가 입"
-        android:textSize="40sp"
+        android:text="회원가입"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/editEmail"
-        android:layout_width="300dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#E91E63"
-        android:hint="이메일 입력" />
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editPass"
-        android:layout_width="300dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:backgroundTint="#E91E63"
-        android:hint="비밀번호 입력" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textStyle="bold"
+            android:layout_gravity="bottom"
+            android:textColor="@color/black"
+            android:textSize="16dp"/>
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#AA65EE"
+            android:hint="이메일 입력" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            android:textStyle="bold"
+            android:layout_gravity="bottom"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="16dp"/>
+
+        <EditText
+            android:id="@+id/editPass"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:backgroundTint="#AA65EE"
+            android:hint="비밀번호 입력" />
+
+    </LinearLayout>
+
 
 
     <android.widget.Button
@@ -55,7 +83,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:text="다음"
         android:textStyle="bold"
         android:textColor="@color/black"
