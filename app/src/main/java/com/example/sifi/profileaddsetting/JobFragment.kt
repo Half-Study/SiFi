@@ -53,7 +53,7 @@ class JobFragment : Fragment() {
 
         jobList.forEach { textView ->
             val remainList = jobList.filter { it != textView }
-            Log.d("daeYoung", "나머지 리스트: ${remainList}")
+//            Log.d("daeYoung", "나머지 리스트: ${remainList}")
 
             textView.setOnClickListener {
                 it.isSelected = !(it.isSelected)
