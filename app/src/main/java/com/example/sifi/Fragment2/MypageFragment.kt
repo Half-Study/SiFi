@@ -43,6 +43,14 @@ class MypageFragment : Fragment() {
     ): View? {
         binding =  FragmentMypageBinding.inflate(inflater,container,false)
         val userUid = FBAuth.getUid()
+        val usermbti = "esfp"
+
+        when(usermbti){
+            "esfp" -> {
+                binding.mbtiImage.setImageResource(R.drawable.esfp)
+            }
+        }
+
 
         boardListAdapter = BoardListAdapter(boardDataList) //어뎁터 엑티비티에 리스트 집어넣기
         binding.boardListView.adapter = boardListAdapter  //리스트뷰에 어뎁터 적용
