@@ -5,21 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Login.CreateAccountActivity">
+    tools:context=".Login.SignUpActivity">
 
     <ImageView
         android:id="@+id/backImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_arrow_back_24"/>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/baseline_arrow_back_24" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +20,7 @@
         android:textSize="40sp"
         android:textColor="@color/black"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="40dp"/>
 
     <EditText
         android:id="@+id/editEmail"
@@ -47,7 +39,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:backgroundTint="#E91E63"
-        android:hint="비밀번호 입력" />
+        android:hint="비밀번호 입력(최소 6자리)" />
 
 
     <android.widget.Button

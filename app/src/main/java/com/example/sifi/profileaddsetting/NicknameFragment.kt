@@ -6,12 +6,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.FragmentContainerView
 import com.example.sifi.MainActivity
 import com.example.sifi.R
+import com.example.sifi.databinding.FragmentNicknameBinding
+import com.example.sifi.databinding.FragmentSexBinding
 
 class NicknameFragment : Fragment() /*, ProfileSettingActivity.onBackPressedListener */ {
 
+    lateinit var nickNameEdit: EditText
+
+    override fun onStop() {
+        super.onStop()
+        val mainActivity = activity as ProfileSettingActivity
+        mainActivity.receiveData(this, mapOf("nickname" to nickNameEdit.text.toString()) )
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -22,14 +32,11 @@ class NicknameFragment : Fragment() /*, ProfileSettingActivity.onBackPressedList
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nickname, container, false)
-    }
+    ): View {
+        val binding = FragmentNicknameBinding.inflate(inflater, container, false)
+        nickNameEdit = binding.nickNameEdit
 
-//    override fun onBackPressed() {
-//        Log.d("daeYoung", "닉네임 프라그먼트 뒤로가기 실행")
-//        requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
-//    }
+        return binding.root
+    }
 
 }
