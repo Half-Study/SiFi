@@ -46,7 +46,7 @@ class BoardListAdapter(val boardList : MutableList<BoardModel>): BaseAdapter() {
         time!!.text = boardList[position].time
         val uid = boardList[position].uid
 
-        Log.i("uid", "Got value {$uid}")
+
 
         val userName = database.getReference("users").child("$uid").child("nickname").get()
             .addOnSuccessListener {
