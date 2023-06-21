@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val view =  inflater.inflate(R.layout.fragment_home, container, false)
 
         val writeButton = view.findViewById<FloatingActionButton>(R.id.writeBtn)
         val boardListView = view.findViewById<ListView>(R.id.boardListView)
@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
         boardListAdapter =
             BoardListAdapter(
                 boardDataList,
-                mainActivity.applicationContext,
                 onItemClick = OnItemClick
             ) //어뎁터 엑티비티에 리스트 집어넣기
         boardListView.adapter = boardListAdapter  //리스트뷰에 어뎁터 적용

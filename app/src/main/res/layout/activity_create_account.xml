@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:backgroundTint="#E91E63"
+        android:backgroundTint="@color/main_blue"
         android:hint="이메일 입력" />
 
     <EditText
@@ -38,7 +38,7 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:backgroundTint="#E91E63"
+        android:backgroundTint="@color/main_blue"
         android:hint="비밀번호 입력(최소 6자리)" />
 
 
@@ -51,7 +51,7 @@
         android:text="다음"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:background="@drawable/round_background_button"
+        android:background="@drawable/selector_next_button"
         android:textSize="20sp" />
 
 

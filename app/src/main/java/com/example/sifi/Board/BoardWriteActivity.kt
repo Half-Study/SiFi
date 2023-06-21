@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -13,9 +11,7 @@ import com.example.sifi.R
 import com.example.sifi.Utils.BoardModel
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.Utils.FBRef
-import com.google.android.play.core.integrity.i
 import com.google.firebase.auth.FirebaseAuth
-import org.w3c.dom.Text
 
 class BoardWriteActivity : AppCompatActivity() {
 

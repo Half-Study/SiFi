@@ -61,4 +61,15 @@
     <!-- 프로필 추가 설정 액티비티 -->
     <string name="activity_profile_setting_next_button">다음</string>
 
+    <!-- 마이페이지 프래그먼트 -->
+    <string name="myIntroduce">소개</string>
+    <string name="myJob">직업</string>
+    <string name="myMbti">MBTI</string>
+    <string name="myRegion">지역</string>
+    <string name="mySex">성별</string>
+    <string name="siheung">경기도 시흥시 </string>
+
+
+
+
 </resources>
