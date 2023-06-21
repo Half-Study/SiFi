@@ -7,9 +7,27 @@
     android:orientation="vertical"
     tools:context=".Login.LoginActivity">
 
+    <TextView
+        android:text="SiFi"
+        android:textSize="35sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="7dp"
+        android:textStyle="bold"
+        android:textColor="@color/Blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/lightGray"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
 
         <LinearLayout
             android:orientation="vertical"

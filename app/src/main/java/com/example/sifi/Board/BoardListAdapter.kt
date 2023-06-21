@@ -57,9 +57,15 @@ class BoardListAdapter(
 
         Log.d("daeYoung", "")
 
+
         image.setOnClickListener {
             onItemClick(uid)
         }
+
+
+        return view!!
+    }
+
 
 
 
