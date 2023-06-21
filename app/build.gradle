@@ -59,5 +59,17 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.1.0' //Circle ImageView
 
+    //coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+
+    // viewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+
+    // repeatOnLifeCycle
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+
+
+
 }
 apply plugin: 'com.google.gms.google-services'

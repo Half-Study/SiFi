@@ -5,8 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,12 +14,16 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var btnCreate : Button
     lateinit var emailEt: EditText
     lateinit var passwordEt: EditText
     lateinit var loginBtn: Button
     lateinit var auth : FirebaseAuth
     lateinit var createBtn : Button
+
+//    override fun onStart() {
+//        super.onStart()
+//        startActivity(Intent(this, ProfileSettingActivity::class.java))
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -32,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
         passwordEt = findViewById(R.id.editPass)
         loginBtn = findViewById(R.id.btnLogin)
         createBtn = findViewById(R.id.btnCreate)
-        btnCreate = findViewById(R.id.btnCreate)
 
         loginBtn.setOnClickListener {
             if (emailEt.text.toString().isEmpty() || passwordEt.text.toString().isEmpty()){
@@ -60,8 +61,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        btnCreate.setOnClickListener {
-            var intent = Intent(this, CreateAccountActivity::class.java)
+        createBtn.setOnClickListener {
+            var intent = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intent)
         }
     }
