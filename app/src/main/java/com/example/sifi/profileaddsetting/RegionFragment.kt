@@ -17,12 +17,12 @@ class RegionFragment : Fragment() {
         super.onStop()
         Log.d("daeYoung", "지역 프라그먼트 onStop() 호출")
         val mainActivity = activity as ProfileSettingActivity
-        mainActivity.receiveData(this, "")
-
+        mainActivity.receiveData(this, mapOf("region" to currentRegion) )
     }
 
     lateinit var binding: FragmentRegionBinding
     lateinit var numberPicker: NumberPicker
+    lateinit var currentRegion: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,14 +48,15 @@ class RegionFragment : Fragment() {
     private fun setupNumberPickerForStringValues() {
         val list = getRegionList()
         numberPicker.also {
+            currentRegion = list[0]
             it.minValue = 0
             it.maxValue = list.size - 1
             it.displayedValues = list
             it.wrapSelectorWheel = true
-//            it.setOnValueChangedListener { picker, oldVal, newVal ->
-//                val text = "Changed from " + list[oldVal] + " to " + list[newVal]
+            it.setOnValueChangedListener { picker, oldVal, newVal ->
+                currentRegion = list[newVal]
 //                Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-//            }
+            }
         }
     }
 

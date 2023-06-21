@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".profileaddsetting.NicknameFragment"
+    tools:context=".profileaddsetting.NameFragment"
     android:id="@+id/nickname_fragment">
 
 
@@ -21,6 +21,7 @@
         android:id="@+id/nickNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:hint="@string/nickname_fragment_edittext" />
 
     <TextView
