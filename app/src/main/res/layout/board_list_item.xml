@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_margin="20dp"
     android:layout_width="match_parent"
-    android:background="@drawable/item_background"
+    android:background="@drawable/selector_mbti_button"
     android:layout_height="180dp">
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:textSize="15dp"
             android:layout_marginLeft="235dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
+            android:textColor="#00498c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -37,7 +37,7 @@
             android:text="time"
             android:textSize="15dp"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/white"
+            android:textColor="#00498c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -47,7 +47,7 @@
             android:text="content"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
-            android:textColor="@color/white"
+            android:textColor="#00498c"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

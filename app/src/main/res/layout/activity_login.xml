@@ -13,7 +13,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="7dp"
         android:textStyle="bold"
-        android:textColor="@color/Blue"
+        android:textColor="#6c80b2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -34,14 +34,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로 그 인"
+                android:text="Welcome"
                 android:textSize="40dp"
-                android:textColor="@drawable/selector_text"
+                android:textStyle="italic"
+                android:textColor="#00498c"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="55dp"
                 />
 
             <EditText
@@ -77,13 +80,15 @@
                     android:text="로그인"
                     android:layout_marginTop="40dp"
                     android:layout_gravity="center"
-                    android:textColor="@drawable/selector_text"
-                    android:textSize="20sp"/>
+                    android:textColor="#00498c"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_mbti_button"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="아직 회원이 아니신가요?"
+                    android:textColor="#6c80b2"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_gravity="center"
@@ -95,8 +100,9 @@
                     android:layout_height="wrap_content"
                     android:text="회원가입"
                     android:layout_gravity="center"
-                    android:textColor="@drawable/selector_text"
+                    android:textColor="#00498c"
                     android:textSize="20sp"
+                    android:background="@drawable/selector_mbti_button"
                     />
             </LinearLayout>
 

@@ -17,7 +17,7 @@
             android:textSize="25sp"
             android:text="회원님을 자유롭게 소개해주세요."
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="#6c80b2"/>
 
     </LinearLayout>
 
@@ -44,7 +44,7 @@
             android:layout_marginLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@drawable/selector_text"
+            android:textColor="#00498c"
             android:textStyle="bold"
             android:text="이야기가 잘 통하는 사람이 좋아요!"/>
 
