@@ -29,7 +29,7 @@ class ProfileSettingActivity : AppCompatActivity() {
     lateinit var uid: String
     val database by lazy { Firebase.database }
 
-    val userData: MutableMap<String, Any> = mutableMapOf()
+    val userData: MutableMap<String, List<String>> = mutableMapOf()
 
     private val fragmentList: List<Fragment> = listOf(
         SexFragment(),
@@ -94,6 +94,9 @@ class ProfileSettingActivity : AppCompatActivity() {
                 changeFragment(fragmentList[cursor++])
                 increaseProgress()
                 changeState()
+            } else if(cursor == fragmentList.size) {
+                ++cursor
+                changeState()
             }
         }
     }
@@ -105,10 +108,13 @@ class ProfileSettingActivity : AppCompatActivity() {
             }
             2 -> {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
-
             }
-            3 -> {}
-            4 -> {}
+            3 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+            }
+            4 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+            }
             5 -> {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
                 binding.nextBtn.isEnabled = true
@@ -130,15 +136,29 @@ class ProfileSettingActivity : AppCompatActivity() {
                     }
                 }
             }
-            7 -> {}
-            8 -> {
+            7 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+            }
+            8 -> { Log.d("daeYoung", "cursor는 ${cursor}번째") }
+            9 -> {
                 val list = userData.values.toList()[0]
-                val user = User(userData.values.toList()[0].toString(), userData.values.toList()[1].toString())
+                val user = User(
+                    userData.values.toList()[0][0],
+                    userData.values.toList()[1][0],
+                    userData.values.toList()[2][0],
+                    userData.values.toList()[3][0],
+                    userData.values.toList()[4],
+                    userData.values.toList()[5][0],
+                    userData.values.toList()[6][0],
+
+                )
+                Log.d("daeYoung", "uid: ${uid}")
+
                 if (uid.isNotBlank()) {
-                    val myRef = database.getReference("test")
+                    Log.d("daeYoung", "firebase store success")
+                    val myRef = database.getReference("users")
                     myRef.child(uid).setValue(user)
                 }
-
 
                 finishAffinity()  // 화면 스택 전체 제거
                 startActivity(Intent(this, LoginActivity::class.java))
@@ -172,14 +192,30 @@ class ProfileSettingActivity : AppCompatActivity() {
         Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: ${data}")
         Log.d("daeYoung", "${fragment.toString()} key: ${data.keys}")
 
-        val valueList = data.values.toList()[0]
-        when(val keyList = data.keys.toList()[0]) {
+        val value = getValue(data = data)
+        when(val key = getKey(data = data)) {
             "sex" -> {
-                userData[keyList] = valueList
+                userData[key] = value
                 Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
             }
             "region" -> {
-                userData[keyList] = valueList
+                userData[key] = value
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
+            "nickname" -> {
+                userData[key] = value
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
+            "job" -> {
+                userData[key] = value
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
+            "mbti" -> {
+                userData[key] = value
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
+            "introduce" -> {
+                userData[key] = value
                 Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
             }
         }
@@ -187,7 +223,15 @@ class ProfileSettingActivity : AppCompatActivity() {
 
     fun receiveData2(fragment: Fragment, data: Map<String, List<String>>) {
         Log.d("daeYoung", "${fragment.toString()} 프라그먼트의 데이터: ${data.toString()}")
+        val value = data.values.toList()[0]
+        val key = data.keys.toList()[0]
+        userData[key] = value
+        Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+
     }
+
+    fun getValue(data: Map<String, String>) = data.values.toList()
+    fun getKey(data: Map<String, String>) = data.keys.toList()[0]
 
 }
 

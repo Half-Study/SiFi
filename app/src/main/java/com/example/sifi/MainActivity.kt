@@ -3,9 +3,9 @@ package com.example.sifi
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.sifi.Fragment2.ChatFragment
-import com.example.sifi.Fragment2.HomeFragment
-import com.example.sifi.Fragment2.MypageFragment
+import com.example.sifi.Fragment.ChatFragment
+import com.example.sifi.Fragment.HomeFragment
+import com.example.sifi.Fragment.MypageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

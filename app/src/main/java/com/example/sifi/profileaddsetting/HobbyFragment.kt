@@ -18,7 +18,7 @@ class HobbyFragment : Fragment() {
         Log.d("daeYoung", "Hobby 프라그먼트 onStop() 호출")
         val selectHobbyList = hobbyList.filter { it.isSelected }.map { it.text.toString() }
         val mainActivity = activity as ProfileSettingActivity
-        mainActivity.receiveData2(this, mapOf("job" to selectHobbyList))
+        mainActivity.receiveData2(this, mapOf("hobby" to selectHobbyList))
     }
     override fun onCreateView(
         inflater: LayoutInflater,

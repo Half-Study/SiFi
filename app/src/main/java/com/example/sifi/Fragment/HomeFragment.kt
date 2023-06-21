@@ -1,4 +1,4 @@
-package com.example.sifi.Fragment2
+package com.example.sifi.Fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import android.widget.ListView
 import com.example.sifi.Board.BoardListAdapter
 import com.example.sifi.Board.BoardWriteActivity
 import com.example.sifi.R
-import com.example.sifi.Utils.BoardModel
+import com.example.sifi.data.BoardModel
 import com.example.sifi.Utils.FBRef
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
@@ -21,8 +21,9 @@ import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {
     private val TAG = HomeFragment::class.java.simpleName
-    private  val boardDataList = mutableListOf<BoardModel>()
+    private val boardDataList = mutableListOf<BoardModel>()
     private lateinit var boardListAdapter : BoardListAdapter
+    private val boardKeyList = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +43,8 @@ class HomeFragment : Fragment() {
         }
 
         getFBBoardDate()
+
+
 
         return view
     }
