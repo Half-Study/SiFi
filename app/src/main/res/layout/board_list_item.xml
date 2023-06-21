@@ -21,7 +21,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp">
 
             <TextView
                 android:id="@+id/myName"
@@ -43,11 +44,12 @@
             android:id="@+id/titleArea"
             android:text="category"
             android:textSize="15dp"
-            android:layout_marginLeft="235dp"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:gravity="end"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -61,7 +63,6 @@
             android:id="@+id/timeArea"
             android:text="time"
             android:textSize="15dp"
-            android:layout_marginLeft="10dp"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -73,7 +74,6 @@
             android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
