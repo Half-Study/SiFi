@@ -1,4 +1,4 @@
-package com.example.sifi.Login
+package com.example.sifi.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

@@ -58,7 +58,7 @@ class MypageFragment : Fragment() {
 
         storageReference.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
             if(task.isSuccessful){
-                Glide.with(this)
+                Glide.with(imageView.context)
                     .load(task.result)
                     .into(imageView)
             }else{

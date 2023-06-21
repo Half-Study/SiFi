@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.sifi.MainActivity
 import com.example.sifi.R
+import com.example.sifi.signup.SignUpActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 

@@ -34,7 +34,7 @@ class ProfileSettingActivity : AppCompatActivity() {
     private val fragmentList: List<Fragment> = listOf(
         SexFragment(),
         RegionFragment(),
-        NicknameFragment(),
+        NameFragment(),
         JobFragment(),
         HobbyFragment(),
         MBTIFragment(),
