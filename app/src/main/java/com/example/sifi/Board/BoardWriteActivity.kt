@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.sifi.R
-import com.example.sifi.data.BoardModel
+import com.example.sifi.Utils.BoardModel
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.Utils.FBRef
 import com.google.firebase.auth.FirebaseAuth

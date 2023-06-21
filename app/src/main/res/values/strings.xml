@@ -3,8 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- 닉네임 프라그먼트 -->
-    <string name="nickname_fragment_title">닉네임을 만들어볼까요?</string>
-    <string name="nickname_fragment_edittext">닉네임을 입력해주세요.</string>
+    <string name="nickname_fragment_title">이름을 만들어볼까요?</string>
+    <string name="nickname_fragment_edittext">이름을 입력해주세요.</string>
     <string name="nickname_fragment_content">최대 8자</string>
     <!-- 지역 설정 프라그먼트 -->
     <string name="activityRegion_fragment_title">주로 활동하는 지역은 어디인가요?</string>
