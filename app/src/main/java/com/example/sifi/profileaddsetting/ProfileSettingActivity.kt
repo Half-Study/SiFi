@@ -156,7 +156,7 @@ class ProfileSettingActivity : AppCompatActivity() {
 
                 if (uid.isNotBlank()) {
                     Log.d("daeYoung", "firebase store success")
-                    val myRef = database.getReference("test")
+                    val myRef = database.getReference("users")
                     myRef.child(uid).setValue(user)
                 }
 

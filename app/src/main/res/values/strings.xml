@@ -61,4 +61,7 @@
     <!-- 프로필 추가 설정 액티비티 -->
     <string name="activity_profile_setting_next_button">다음</string>
 
+    <!-- 채팅 프레그먼트   -->
+    <string name="chatinglist">메시지 목록</string>
+
 </resources>
