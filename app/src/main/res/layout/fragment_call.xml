@@ -21,7 +21,9 @@
         android:id="@+id/callEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:maxLines="1"
+        android:padding="8dp"
         android:hint="전화번호를 입력하세요" />
 
     <TextView
