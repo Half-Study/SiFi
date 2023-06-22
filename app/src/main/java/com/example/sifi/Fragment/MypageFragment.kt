@@ -1,9 +1,12 @@
 package com.example.sifi.Fragment
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -13,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.sifi.MainActivity
 import com.example.sifi.R
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.data.User
@@ -21,6 +25,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import java.io.ByteArrayOutputStream
 
@@ -34,6 +39,7 @@ class MypageFragment : Fragment() {
     private lateinit var myIntroduce: TextView
     private lateinit var myJob: TextView
     private lateinit var myMbti: TextView
+    lateinit var mainActivity: MainActivity
 
 
     override fun onCreateView(
@@ -43,6 +49,18 @@ class MypageFragment : Fragment() {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
         val database = Firebase.database
         val userUid = FBAuth.getUid()
+        val firebaseRef by lazy { Firebase.database.getReference("users") }
+        val fireStorageRef by lazy { FirebaseStorage.getInstance().reference }
+
+        userUid.let {
+            firebaseRef.child(userUid).get().addOnSuccessListener {
+                val item = it.getValue(User::class.java) ?: User()
+                hobbyList(hobbyList = item.hobby)
+                Log.i("park hwan", "Got value $item")
+            }.addOnFailureListener {
+                Log.d("daeYoung", "user data download fail")
+            }
+        }
 
 
         val Mbti = database.getReference("users").child("$userUid").child("mbti").get()
@@ -184,5 +202,36 @@ class MypageFragment : Fragment() {
 
 
     }
+
+    private fun hobbyList(hobbyList: List<String>) {
+        mainActivity = context as MainActivity
+        hobbyList.forEach {
+            val textView = TextView(mainActivity.applicationContext).apply {
+                text = it
+                setTextColor(Color.WHITE)
+                setPadding(16, 10, 16, 10)
+
+                val marginLayoutParams = ViewGroup.MarginLayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                marginLayoutParams.setMargins(0, 10, 10, 10)
+                layoutParams = marginLayoutParams
+
+                val backgroundDrawable = GradientDrawable().apply {
+                    shape = GradientDrawable.RECTANGLE
+                    cornerRadius = 20f
+                    setColor(mainActivity.getColor(R.color.main_blue))
+                }
+                background = backgroundDrawable
+
+            }
+            binding.hobbyLayout.addView(textView)
+        }
+        Log.i("hwan", "hobby $hobbyList")
+
+    }
+
+
 
 }
