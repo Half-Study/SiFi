@@ -21,15 +21,17 @@
 
         <TextView
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="카테고리"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20dp"
+            android:textColor="#00498c"
+            android:textSize="27dp"
+            android:textStyle="italic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
 
         <LinearLayout
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -37,60 +39,72 @@
             <TextView
                 android:id="@+id/textDrink"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/black_round"
+                android:layout_height="30sp"
+                android:background="@drawable/catego_round"
                 android:layout_marginLeft="20dp"
-                android:text="술"
-                android:textColor="@drawable/selector_text"
+                android:text="음주"
+                android:textStyle="bold"
+                android:textColor="#00498c"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textSports"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30sp"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/black_round"
-                android:textColor="@drawable/selector_text"
+                android:background="@drawable/catego_round"
+                android:textColor="#00498c"
                 android:text="운동"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textFood"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30sp"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/black_round"
+                android:background="@drawable/catego_round"
                 android:text="식사"
-                android:textColor="@drawable/selector_text"
+                android:textStyle="bold"
+                android:textColor="#00498c"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textGame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30sp"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/black_round"
+                android:background="@drawable/catego_round"
                 android:text="게임"
-                android:textColor="@drawable/selector_text"
+                android:textStyle="bold"
+                android:textColor="#00498c"
                 android:textSize="20sp" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/haha"
+                android:layout_marginLeft="135dp"
+                />
 
         </LinearLayout>
 
         <EditText
             android:id="@+id/editContent"
             android:layout_width="match_parent"
-            android:background="@drawable/black_round"
+            android:background="@drawable/catego_round"
             android:layout_height="100dp"
             android:layout_margin="20dp"
             android:hint="내용" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/insertBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="등록"
-            android:textColor="@drawable/selector_text"/>
+            android:background="@drawable/selector_mbti_button"
+            android:backgroundTint="#BBCAFF"
+            android:textColor="#00498c"/>
 
 
 

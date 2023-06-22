@@ -9,8 +9,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="어떤일을 하고 계시나요?"
-        android:textColor="@color/black"
+        android:text="어떤 일을 하고 계시나요?"
+        android:textColor="#00498c"
         android:textStyle="bold"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="30dp"

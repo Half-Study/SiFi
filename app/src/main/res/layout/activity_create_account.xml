@@ -16,19 +16,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="회 원 가 입"
+        android:text="Enjoy your life"
         android:textSize="40sp"
-        android:textColor="@color/black"
+        android:textColor="#00498c"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="60dp"/>
 
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/main_blue"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#00498c"
         android:maxLines="1"
         android:hint="이메일 입력" />
 
@@ -39,7 +39,7 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:backgroundTint="@color/main_blue"
+        android:backgroundTint="#00498c"
         android:maxLines="1"
         android:hint="비밀번호 입력(최소 6자리)" />
 
@@ -49,11 +49,11 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:text="다음"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@drawable/selector_next_button"
+        android:textColor="#00498c"
+        android:background="@drawable/selector_mbti_button"
         android:textSize="20sp" />
 
 
