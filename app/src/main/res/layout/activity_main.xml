@@ -7,21 +7,21 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:text="SiFi"
-        android:textSize="35sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="7dp"
-        android:textStyle="bold"
+        android:text="SiFi"
         android:textColor="#6c80b2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/lineView"
-        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="@color/lightGray"/>
+        android:layout_marginTop="55dp"
+        android:background="@color/lightGray" />
 
     <FrameLayout
         android:id="@+id/container"
@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottomnav"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="62dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
