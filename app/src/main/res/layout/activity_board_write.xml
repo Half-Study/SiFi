@@ -7,13 +7,10 @@
     android:orientation="vertical"
     tools:context=".Board.BoardWriteActivity">
 
-    <ImageView
-        android:id="@+id/backImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:paddingTop="8dp"
-        android:paddingLeft="8dp"
-        android:src="@drawable/baseline_arrow_back_24"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
     <LinearLayout
@@ -24,7 +21,7 @@
 
         <TextView
             android:text="카테고리"
-            android:textColor="#00498c"
+            android:textColor="@color/main_blue"
             android:textSize="27dp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -42,10 +39,10 @@
                 android:id="@+id/textDrink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/catego_round"
+                android:background="@drawable/selector_category_button"
                 android:text="음주"
                 android:textStyle="bold"
-                android:textColor="#00498c"
+                android:textColor="@drawable/selector_text"
                 android:textSize="16sp"
                 android:padding="6dp"/>
 
@@ -54,8 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/catego_round"
-                android:textColor="#00498c"
+                android:background="@drawable/selector_category_button"
+                android:textColor="@drawable/selector_text"
                 android:text="운동"
                 android:textStyle="bold"
                 android:textSize="16sp"
@@ -66,10 +63,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/catego_round"
+                android:background="@drawable/selector_category_button"
                 android:text="식사"
                 android:textStyle="bold"
-                android:textColor="#00498c"
+                android:textColor="@drawable/selector_text"
                 android:textSize="16sp"
                 android:padding="6dp" />
 
@@ -78,10 +75,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/catego_round"
+                android:background="@drawable/selector_category_button"
                 android:text="게임"
                 android:textStyle="bold"
-                android:textColor="#00498c"
+                android:textColor="@drawable/selector_text"
                 android:textSize="16sp"
                 android:padding="6dp"
                 />
@@ -97,7 +94,7 @@
         <EditText
             android:id="@+id/editContent"
             android:layout_width="match_parent"
-            android:background="@drawable/catego_round"
+            android:background="@drawable/selector_category_edittext"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
@@ -112,7 +109,6 @@
             android:textStyle="bold"
             android:textSize="16dp"
             android:background="@drawable/selector_mbti_button"
-            android:backgroundTint="#BBCAFF"
             android:textColor="#FFFFFF"/>
 
 
