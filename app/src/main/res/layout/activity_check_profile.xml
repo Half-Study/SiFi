@@ -35,13 +35,13 @@
                     android:id="@+id/region"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="경기도 광주시" />
+                    android:text="경기도 시흥시" />
 
                 <TextView
-                    android:id="@+id/tall"
+                    android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="185cm" />
+                    android:text="미정" />
 
             </LinearLayout>
 
@@ -66,15 +66,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="학교"
+                        android:text="성별"
                         android:textColor="@color/Gray" />
 
                     <TextView
-                        android:id="@+id/school"
+                        android:id="@+id/sex"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:text="한국공학대학교"
+                        android:text="미정"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -96,7 +96,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:text="학생"
+                        android:text="미정"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -118,7 +118,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:text="010-0000-0000"
+                        android:text="미정"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
@@ -211,20 +211,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:text="내 성격은"
                     android:textColor="@color/Gray" />
+
                 <LinearLayout
-                    android:id="@+id/personalityLayout"
-                    android:layout_width="match_parent"
+                    android:id="@+id/mbtiLayout"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                 </LinearLayout>
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -235,12 +239,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="내 취미는"
                     android:textColor="@color/Gray" />
+
                 <LinearLayout
                     android:id="@+id/hobbyLayout"
                     android:layout_width="match_parent"
@@ -250,6 +256,7 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -260,13 +267,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="내가 좋아하는 친구"
+                    android:layout_marginBottom="10dp"
+                    android:text="나를 소개합니다"
                     android:textColor="@color/Gray" />
+
                 <LinearLayout
-                    android:id="@+id/favoritePersonLayout"
+                    android:id="@+id/introduceLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -274,6 +284,7 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
