@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
 import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
@@ -90,46 +91,30 @@ class CheckProfileActivity : AppCompatActivity() {
     }
 
     private fun addMbti(mbti: String) {
-        val mbtiList = listOf(
-            R.drawable.enfj,
-            R.drawable.enfp,
-            R.drawable.entj,
-            R.drawable.entp,
-            R.drawable.esfj,
-            R.drawable.esfp,
-            R.drawable.estj,
-            R.drawable.estp,
-            R.drawable.infj,
-            R.drawable.infp,
-            R.drawable.intj,
-            R.drawable.intp,
-            R.drawable.isfj,
-            R.drawable.isfp,
-            R.drawable.istj,
-            R.drawable.istp,
-        )
-        val mbtiNum = when(mbti) {
-            "enfj" -> R.drawable.enfj
-            "enfp" -> R.drawable.enfp
-            "entj" -> R.drawable.entj
-            "entp" -> R.drawable.entp
-            "esfj" -> R.drawable.esfj
-            "esfp" -> R.drawable.esfp
-            "estj" -> R.drawable.estj
-            "estp" -> R.drawable.estp
-            "infj" -> R.drawable.infj
-            "infp" -> R.drawable.infp
-            "intj" -> R.drawable.intj
-            "intp" -> R.drawable.intp
-            "isfj" -> R.drawable.isfj
-            "isfp" -> R.drawable.isfp
-            "istj" -> R.drawable.istj
-            "istp" -> R.drawable.istp
-            else -> { -1 }
+        val mbtiNum = when (mbti) {
+            "ENFJ" -> R.drawable.enfj
+            "ENFP" -> R.drawable.enfp
+            "ENTJ" -> R.drawable.entj
+            "ENTP" -> R.drawable.entp
+            "ESFJ" -> R.drawable.esfj
+            "ESFP" -> R.drawable.esfp
+            "ESTJ" -> R.drawable.estj
+            "ESTP" -> R.drawable.estp
+            "INFJ" -> R.drawable.infj
+            "INFP" -> R.drawable.infp
+            "INTJ" -> R.drawable.intj
+            "INTP" -> R.drawable.intp
+            "ISFJ" -> R.drawable.isfj
+            "ISFP" -> R.drawable.isfp
+            "ISTJ" -> R.drawable.istj
+            "ISTP" -> R.drawable.istp
+            else -> {
+                -1
+            }
         }
         val imageView = ImageView(this).apply {
-            setImageResource(R.drawable.enfp)
-            layoutParams = LinearLayout.LayoutParams(220,220)
+            setImageResource(mbtiNum)
+            layoutParams = LinearLayout.LayoutParams(220, 220)
         }
         val textView = TextView(this).apply {
             text = mbti
@@ -156,7 +141,7 @@ class CheckProfileActivity : AppCompatActivity() {
     }
 
     private fun addCall(call: String) {
-        binding.call.text = "${call.substring(0,3)}-${call.substring(3,7)}-${call.substring(7)}"
+        binding.call.text = "${call.substring(0, 3)}-${call.substring(3, 7)}-${call.substring(7)}"
 
     }
 }
