@@ -4,6 +4,7 @@ data class User(
     val sex: String = "",
     val region: String = "",
     val nickname: String = "",
+    val call: String = "",
     val job: String = "",
     val hobby: List<String> = emptyList(),
     val mbti: String = "",

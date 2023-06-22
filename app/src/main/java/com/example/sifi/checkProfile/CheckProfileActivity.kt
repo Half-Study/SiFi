@@ -1,11 +1,16 @@
 package com.example.sifi.checkProfile
 
+import android.annotation.SuppressLint
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.marginEnd
 import androidx.core.view.setPadding
@@ -26,6 +31,7 @@ class CheckProfileActivity : AppCompatActivity() {
     val firebaseRef by lazy { Firebase.database.getReference("users") }
     val fireStorageRef by lazy { FirebaseStorage.getInstance().reference }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -33,7 +39,14 @@ class CheckProfileActivity : AppCompatActivity() {
         uid?.let {
             firebaseRef.child(uid).get().addOnSuccessListener {
                 val item = it.getValue(User::class.java) ?: User()
-                hobbyList(hobbyList = item.hobby)
+                addHobbyList(hobbyList = item.hobby)
+                addMbti(mbti = item.mbti)
+                addIntroduce(introduce = item.introduce)
+                addCall(call = item.call)
+                binding.name.text = item.nickname
+                binding.sex.text = item.sex
+                binding.region.text = "${binding.region.text} ${item.region}"
+
             }.addOnFailureListener {
                 Log.d("daeYoung", "user data download fail")
             }
@@ -48,20 +61,13 @@ class CheckProfileActivity : AppCompatActivity() {
         }
     }
 
-    fun hobbyList(hobbyList: List<String>) {
+    private fun addHobbyList(hobbyList: List<String>) {
 //        val textViewList = mutableListOf<TextView>()
         hobbyList.forEach {
-//            textViewList.add(
-//                TextView(this).apply {
-//                    text = it
-//                    setTextColor(Color.WHITE)
-//                    setBackgroundColor(getColor(R.color.main_blue))
-//                }
-//            )
+
             val textView = TextView(this).apply {
                 text = it
                 setTextColor(Color.WHITE)
-//                setBackgroundColor(getColor(R.color.main_blue))
                 setPadding(16, 10, 16, 10)
 
                 val marginLayoutParams = ViewGroup.MarginLayoutParams(
@@ -81,5 +87,76 @@ class CheckProfileActivity : AppCompatActivity() {
             }
             binding.hobbyLayout.addView(textView)
         }
+    }
+
+    private fun addMbti(mbti: String) {
+        val mbtiList = listOf(
+            R.drawable.enfj,
+            R.drawable.enfp,
+            R.drawable.entj,
+            R.drawable.entp,
+            R.drawable.esfj,
+            R.drawable.esfp,
+            R.drawable.estj,
+            R.drawable.estp,
+            R.drawable.infj,
+            R.drawable.infp,
+            R.drawable.intj,
+            R.drawable.intp,
+            R.drawable.isfj,
+            R.drawable.isfp,
+            R.drawable.istj,
+            R.drawable.istp,
+        )
+        val mbtiNum = when(mbti) {
+            "enfj" -> R.drawable.enfj
+            "enfp" -> R.drawable.enfp
+            "entj" -> R.drawable.entj
+            "entp" -> R.drawable.entp
+            "esfj" -> R.drawable.esfj
+            "esfp" -> R.drawable.esfp
+            "estj" -> R.drawable.estj
+            "estp" -> R.drawable.estp
+            "infj" -> R.drawable.infj
+            "infp" -> R.drawable.infp
+            "intj" -> R.drawable.intj
+            "intp" -> R.drawable.intp
+            "isfj" -> R.drawable.isfj
+            "isfp" -> R.drawable.isfp
+            "istj" -> R.drawable.istj
+            "istp" -> R.drawable.istp
+            else -> { -1 }
+        }
+        val imageView = ImageView(this).apply {
+            setImageResource(R.drawable.enfp)
+            layoutParams = LinearLayout.LayoutParams(220,220)
+        }
+        val textView = TextView(this).apply {
+            text = mbti
+            setTextColor(Color.BLACK)
+            setTypeface(null, Typeface.BOLD)
+            gravity = Gravity.CENTER
+            setPadding(0, 20, 0, 0)
+        }
+
+        binding.mbtiLayout.also {
+            it.addView(imageView)
+            it.addView(textView)
+        }
+    }
+
+    private fun addIntroduce(introduce: String) {
+        val textView = TextView(this).apply {
+            text = "\"${introduce}\""
+            setTextColor(Color.BLACK)
+            setTypeface(null, Typeface.BOLD)
+//            setPadding(16, 10, 16, 10)
+        }
+        binding.introduceLayout.addView(textView)
+    }
+
+    private fun addCall(call: String) {
+        binding.call.text = "${call.substring(0,3)}-${call.substring(3,7)}-${call.substring(7)}"
+
     }
 }

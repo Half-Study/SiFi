@@ -29,6 +29,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/main_blue"
+        android:maxLines="1"
         android:hint="이메일 입력" />
 
     <EditText
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:backgroundTint="@color/main_blue"
+        android:maxLines="1"
         android:hint="비밀번호 입력(최소 6자리)" />
 
 
