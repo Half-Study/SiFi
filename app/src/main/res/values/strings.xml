@@ -63,5 +63,7 @@
 
     <!-- 채팅 프레그먼트   -->
     <string name="chatinglist">메시지 목록</string>
+    <string name="addChatingRoom">방 만들기</string>
+    <string name="takeMessage">메시지를 입력하세요</string>
 
 </resources>

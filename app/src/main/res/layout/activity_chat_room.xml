@@ -21,6 +21,7 @@
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:layout_gravity="center_vertical"
             android:text="방제목"/>
 
@@ -38,7 +39,8 @@
         <EditText
             android:id="@+id/editMsg"
             android:layout_width="350dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="@string/takeMessage"/>
         <ImageButton
             android:id="@+id/btnSend"
             android:layout_width="wrap_content"
