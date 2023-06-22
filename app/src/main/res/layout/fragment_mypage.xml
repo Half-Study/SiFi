@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Fragment.MypageFragment">
 
@@ -46,8 +45,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MBTI"
-                android:layout_marginTop="20dp"
                 android:gravity="center_horizontal"
                 android:text="MBTI"
                 android:textColor="@color/black"

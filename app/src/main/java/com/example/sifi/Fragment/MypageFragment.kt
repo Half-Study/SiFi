@@ -132,7 +132,7 @@ class MypageFragment : Fragment() {
     }
 
     // 이미지 파이어베이스에 올리는 함수
-    private fun imageUpload(key: String) {
+    private fun imageUpload(key: String?) {
         val storageRef = storage.reference
         val mountainsRef = storageRef.child(key + ".png")
         val addImage = binding.addImg
