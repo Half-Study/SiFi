@@ -12,19 +12,35 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/addImg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/baseline_perm_identity_24" />
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/addImg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_perm_identity_24" />
+
+            <android.widget.Button
+                android:id="@+id/btnUpload"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_next_button"
+                android:layout_marginTop="10dp"
+                android:text="프로필 변경"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="110dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -33,25 +49,28 @@
                 android:text="MBTI"
                 android:layout_marginTop="20dp"
                 android:gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:text="MBTI"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/mbtiImage"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_height="70dp" />
+
+            <TextView
+                android:id="@+id/myMbtiTv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/myMbti"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <android.widget.Button
-        android:id="@+id/btnUpload"
-        android:text="프로필 변경"
-        android:textColor="@color/white"
-        android:background="@drawable/selector_next_button"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,15 +108,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=", "
-            android:textColor="@color/black"/>
+            android:text="("
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/mySexTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="mySex"
-            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=")"
             android:textColor="@color/black" />
 
 
@@ -114,15 +139,15 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/siheung"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/myRegionTv"
-            android:textColor="@color/black"
-            android:text="region"
-            android:layout_marginLeft="3dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="region"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 
@@ -142,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="@string/myIntroduce"/>
+            android:text="@string/myIntroduce" />
 
         <TextView
             android:id="@+id/myIntroduceTv"
@@ -163,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="@string/myJob"/>
+            android:text="@string/myJob" />
 
         <TextView
             android:id="@+id/myJobTv"
@@ -185,14 +210,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="@string/myMbti"/>
+            android:text="@string/myMbti" />
 
         <TextView
             android:id="@+id/myMbtiTv"
-            android:layout_marginLeft="53dp"
-            android:textColor="@color/black"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="53dp"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -200,12 +225,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="내 취미는" />
+
         <LinearLayout
             android:id="@+id/hobbyLayout"
             android:layout_width="match_parent"

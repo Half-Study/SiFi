@@ -39,6 +39,7 @@ class MypageFragment : Fragment() {
     private lateinit var myIntroduce: TextView
     private lateinit var myJob: TextView
     private lateinit var myMbti: TextView
+    private lateinit var myMbti2: TextView
     lateinit var mainActivity: MainActivity
 
 
@@ -160,6 +161,7 @@ class MypageFragment : Fragment() {
         myIntroduce = binding.myIntroduceTv
         myJob = binding.myJobTv
         myMbti = binding.myMbtiTv
+        myMbti2 = binding.myMbtiTv2
 
 
         val userName = database.getReference("users").child("$userUid").child("nickname").get()
@@ -196,6 +198,12 @@ class MypageFragment : Fragment() {
             .addOnSuccessListener {
                 Log.i("firebase", "Got value ${it.value}")
                 myMbti.text = it.value.toString()
+
+            }
+        val userMbti2 = database.getReference("users").child("$userUid").child("mbti").get()
+            .addOnSuccessListener {
+                Log.i("firebase", "Got value ${it.value}")
+                myMbti2.text = it.value.toString()
 
             }
 
