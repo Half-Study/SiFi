@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -22,6 +23,7 @@ class BoardWriteActivity : AppCompatActivity() {
     private lateinit var textFood : TextView
     private lateinit var textSports : TextView
     private lateinit var textDrink : TextView
+    private lateinit var backImg : ImageView
 
 
     private lateinit var auth: FirebaseAuth
@@ -36,6 +38,11 @@ class BoardWriteActivity : AppCompatActivity() {
         textGame = findViewById(R.id.textGame)
         textFood = findViewById(R.id.textFood)
         textSports = findViewById(R.id.textSports)
+        backImg = findViewById(R.id.backImage)
+
+        backImg.setOnClickListener {
+            finish()
+        }
         var category = ""
 
         var textArray = arrayOf(textDrink,textGame,textSports,textFood)
