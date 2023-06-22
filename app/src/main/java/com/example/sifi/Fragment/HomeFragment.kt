@@ -94,9 +94,9 @@ class HomeFragment : Fragment() {
         )
     }
 
-    val OnItemClick:(String) -> Unit = {
+    private val OnItemClick:(String) -> Unit = { uid ->
         val intent = Intent(activity, CheckProfileActivity::class.java).also {
-            it.putExtra("uid", it)
+            it.putExtra("uid", uid)
         }
         startActivity(intent)
     }
