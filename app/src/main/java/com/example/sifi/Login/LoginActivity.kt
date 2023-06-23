@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
                             if(auth.currentUser!=null){
                                 var intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)
+                                finish()
                             }
 
                         } else {
