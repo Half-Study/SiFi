@@ -5,10 +5,12 @@ class Room {
     var id : String = ""        // 방 아이디
     var title : String = ""     //방이름
     var users: String = ""
+    var partner : String = ""
 
     constructor()
-    constructor(title: String, creatorName: String) {
+    constructor(title: String, partnerName: String, userName : String) {       // 인자도 추가 createrName, partnerName
         this.title = title
-        users = creatorName
+        this.partner = partnerName       // users 에서 partner로 바꿈
+        this.users = userName
     }
 }

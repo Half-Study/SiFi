@@ -11,8 +11,7 @@ class Message {
     constructor(msg: String) {
         this.msg = msg
         this.userName = userName
-        this.timestamp = System.currentTimeMillis()
+//        this.timestamp = System.currentTimeMillis()
     }
-
 }
 

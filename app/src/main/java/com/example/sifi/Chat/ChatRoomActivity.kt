@@ -1,5 +1,6 @@
 package com.example.sifi.Chat
 
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class ChatRoomActivity: AppCompatActivity() {
@@ -88,6 +90,11 @@ class ChatRoomActivity: AppCompatActivity() {
             }
         }
     }
+    fun getFormattedTimestamp(timestamp: Long): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss") // 원하는 날짜 형식을 지정합니다.
+        val date = Date(timestamp)
+        return dateFormat.format(date)
+    }
 }
 class MsgListAdapter(val msgList: MutableList<com.example.sifi.model.Message>) :
     RecyclerView.Adapter<MsgListAdapter.Holder>() {
@@ -115,7 +122,8 @@ class MsgListAdapter(val msgList: MutableList<com.example.sifi.model.Message>) :
                 binding.textName.text = it.value.toString()
             }
             binding.textMsg.setText(msg.msg)
-            binding.textDate.setText("${msg.timestamp}")
+            val formattedTimestamp = (itemView.context as ChatRoomActivity).getFormattedTimestamp(msg.timestamp)
+            binding.textDate.text = formattedTimestamp
         }
     }
 }

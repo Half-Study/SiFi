@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +45,7 @@ class ChatFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_chat_list, container, false)
 
-        val userName = database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
+        var userName = database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
         }.toString()
 
@@ -80,18 +81,39 @@ class ChatFragment : Fragment() {
     }
 
     private fun openCreateRoom() {  //새로운 방 만드는 함수
-        val editTitle = EditText(requireContext())
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("방 이름")
-            .setView(editTitle)
-            .setPositiveButton("만들기") { _, _ ->
-                createRoom(editTitle.text.toString())
-            }
+        val context = requireContext()
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("방 만들기")
+
+        // 방 제목을 입력받을 EditText 추가
+        val layout = LinearLayout(context)
+        layout.orientation = LinearLayout.VERTICAL
+
+        // 방 제목을 입력받을 EditText 추가
+        val editTitle = EditText(context)
+        editTitle.hint = "방 제목"
+        layout.addView(editTitle)
+
+        // 상대방 이름을 입력받을 EditText 추가
+        val editPartner = EditText(context)
+        editPartner.hint = "대화 상대"
+        layout.addView(editPartner)
+
+        // 레이아웃을 다이얼로그에 설정합니다.
+        dialog.setView(layout)
+
+        dialog.setPositiveButton("만들기") { _, _ ->
+            val title = editTitle.text.toString()
+            val partner = editPartner.text.toString()   // 여기에서 파이어베이스에 입력된 이름과 같으면 호출하도록 조건문 써야되나?
+            createRoom(title, partner, userName)
+        }
+
+        dialog.setNegativeButton("취소", null)
         dialog.show()
     }
 
-    private fun createRoom(title: String) {
-        val room = Room(title, userName)
+    private fun createRoom(title: String, partner : String, userName : String) {       // 인자로 받은 것을 room 데이터 클래스에기록해야겠지
+        val room = Room(title, partner, userName)
         val roomId = roomsRef.push().key!!
         room.id = roomId
         roomsRef.child(roomId).setValue(room)
@@ -102,7 +124,7 @@ class ChatRoomListAdapter(val roomList: MutableList<Room>) :
     RecyclerView.Adapter<ChatRoomListAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(android.R.layout.simple_list_item_1, parent, false)
+            .inflate(R.layout.chat_list_item, parent, false)
         return Holder(view)
     }
 
@@ -117,6 +139,8 @@ class ChatRoomListAdapter(val roomList: MutableList<Room>) :
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var mRoom: Room
+        val roomNameTextView: TextView = itemView.findViewById(R.id.RoomName)
+        val partnerNameTextView: TextView = itemView.findViewById(R.id.PartnerName)
 
         init {
             itemView.setOnClickListener {
@@ -130,7 +154,9 @@ class ChatRoomListAdapter(val roomList: MutableList<Room>) :
 
         fun setRoom(room: Room) {
             this.mRoom = room
-            itemView.findViewById<TextView>(android.R.id.text1).setText(room.title)
+//            itemView.findViewById<TextView>(R.id.RoomName).setText(room.title)
+            roomNameTextView.text = room.title
+            partnerNameTextView.text = room.partner
         }
     }
 }
