@@ -3,8 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- 닉네임 프라그먼트 -->
-    <string name="nickname_fragment_title">닉네임을 만들어볼까요?</string>
-    <string name="nickname_fragment_edittext">닉네임을 입력해주세요.</string>
+    <string name="nickname_fragment_title">이름을 만들어볼까요?</string>
+    <string name="nickname_fragment_edittext">이름을 입력해주세요.</string>
     <string name="nickname_fragment_content">최대 8자</string>
     <!-- 지역 설정 프라그먼트 -->
     <string name="activityRegion_fragment_title">주로 활동하는 지역은 어디인가요?</string>
@@ -65,5 +65,14 @@
     <string name="chatinglist">메시지 목록</string>
     <string name="addChatingRoom">방 만들기</string>
     <string name="takeMessage">메시지를 입력하세요</string>
+
+    <!-- 마이페이지 프래그먼트 -->
+    <string name="myIntroduce">소개</string>
+    <string name="myJob">직업</string>
+    <string name="myMbti">MBTI</string>
+    <string name="myRegion">지역</string>
+    <string name="mySex">성별</string>
+    <string name="siheung">경기도 시흥시 </string>
+
 
 </resources>

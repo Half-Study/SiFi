@@ -1,16 +1,29 @@
 package com.example.sifi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sifi.Fragment2.ChatFragment
 import com.example.sifi.Fragment2.ChatFragment.Companion.userName
+import com.example.sifi.Fragment.MypageFragment
 import com.example.sifi.Fragment2.HomeFragment
-import com.example.sifi.Fragment2.MypageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNav : BottomNavigationView
+    private var backPressedTime: Long = 0
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if(backPressedTime + 3000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+            finish()
+        } else {
+            Toast.makeText(this, "한번 더 뒤로가기 버튼을 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
