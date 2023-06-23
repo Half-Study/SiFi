@@ -17,7 +17,6 @@ import com.example.sifi.R
 import com.example.sifi.data.User
 import com.example.sifi.databinding.ActivityCheckProfileBinding
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 

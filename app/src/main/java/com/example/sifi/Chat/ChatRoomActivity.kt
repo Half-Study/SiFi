@@ -2,14 +2,11 @@ package com.example.sifi.Chat
 
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sifi.Fragment2.ChatFragment
-import com.example.sifi.Fragment2.ChatFragment.Companion.userName
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.databinding.ActivityChatRoomBinding
 import com.example.sifi.databinding.ItemMsgListBinding

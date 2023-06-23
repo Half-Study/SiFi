@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.sifi.R
 import com.example.sifi.databinding.FragmentHobbyBinding
 
 class HobbyFragment : Fragment() {
