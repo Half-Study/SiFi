@@ -23,13 +23,10 @@ class LoginActivity : AppCompatActivity() {
     }
     lateinit var createBtn : Button
 
-//    override fun onStart() {
-//        super.onStart()
-//        startActivity(Intent(this, ProfileSettingActivity::class.java))
-//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
 
         emailEt = findViewById(R.id.editEmail)
