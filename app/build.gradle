@@ -75,6 +75,9 @@ dependencies {
     // firebaseStorage
     implementation 'com.google.firebase:firebase-storage:20.2.1'
 
+    // firebaseMessaging
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.2'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
