@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/baseline_back_hand_24"
-            android:text="동네 친구와 놀고 싶을때"
+            android:text="동네 친구와 놀고 싶을때 "
             android:textColor="@color/black"
             android:textSize="22dp"
             android:textStyle="bold" />

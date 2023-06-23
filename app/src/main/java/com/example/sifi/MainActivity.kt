@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.sifi.Fragment.ChatFragment
 import com.example.sifi.Fragment.MypageFragment
+import com.example.sifi.Fragment2.ChatFragment
+import com.example.sifi.Fragment2.ChatFragment.Companion.userName
 import com.example.sifi.Fragment2.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.chat->{
-                    loadFragment(ChatFragment())
+                    loadFragment(fragment = ChatFragment(), userName)
                     true
                 }
                 R.id.myPage->{
@@ -52,6 +53,15 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container,fragment)
+        transaction.commit()
+    }
+    private fun loadFragment(fragment : ChatFragment, userName: String) {
+        fragment.arguments = Bundle().apply {
+            //putString("userId", userId)
+            putString("userName", userName)
+        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
 }

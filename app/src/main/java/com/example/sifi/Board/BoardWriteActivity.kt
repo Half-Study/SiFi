@@ -1,19 +1,14 @@
 package com.example.sifi.Board
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
-import com.example.sifi.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sifi.Utils.BoardModel
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.Utils.FBRef

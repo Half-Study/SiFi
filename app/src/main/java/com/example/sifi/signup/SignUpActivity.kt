@@ -1,14 +1,10 @@
 package com.example.sifi.signup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sifi.R
 import com.example.sifi.profileaddsetting.ProfileSettingActivity
 import com.google.firebase.auth.FirebaseAuth

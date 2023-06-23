@@ -1,7 +1,6 @@
 package com.example.sifi.Fragment
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -10,11 +9,11 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.sifi.MainActivity
 import com.example.sifi.R
@@ -22,7 +21,6 @@ import com.example.sifi.Utils.FBAuth
 import com.example.sifi.data.User
 import com.example.sifi.databinding.FragmentMypageBinding
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -52,6 +50,7 @@ class MypageFragment : Fragment() {
         val userUid = FBAuth.getUid()
         val firebaseRef by lazy { Firebase.database.getReference("users") }
         val fireStorageRef by lazy { FirebaseStorage.getInstance().reference }
+        binding.mbtiTitle.text = "< ${binding.mbtiTitle.text} >"
 
         userUid.let {
             firebaseRef.child(userUid).get().addOnSuccessListener {

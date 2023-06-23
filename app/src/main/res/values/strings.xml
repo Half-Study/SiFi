@@ -61,6 +61,11 @@
     <!-- 프로필 추가 설정 액티비티 -->
     <string name="activity_profile_setting_next_button">다음</string>
 
+    <!-- 채팅 프레그먼트   -->
+    <string name="chatinglist">메시지 목록</string>
+    <string name="addChatingRoom">방 만들기</string>
+    <string name="takeMessage">메시지를 입력하세요</string>
+
     <!-- 마이페이지 프래그먼트 -->
     <string name="myIntroduce">소개</string>
     <string name="myJob">직업</string>
