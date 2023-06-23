@@ -2,78 +2,94 @@ package com.example.sifi.Board
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import com.example.sifi.R
 import com.example.sifi.Utils.BoardModel
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.Utils.FBRef
-import com.google.android.play.core.integrity.i
+import com.example.sifi.databinding.ActivityBoardWriteBinding
 import com.google.firebase.auth.FirebaseAuth
-import org.w3c.dom.Text
 
 class BoardWriteActivity : AppCompatActivity() {
 
-    private lateinit var insertBtn : Button
-    private lateinit var editTitle : EditText
-    private lateinit var editContent : EditText
-    private lateinit var textGame : TextView
-    private lateinit var textFood : TextView
-    private lateinit var textSports : TextView
-    private lateinit var textDrink : TextView
+    private lateinit var insertBtn: Button
+    private lateinit var editTitle: EditText
+    private lateinit var editContent: EditText
+    private lateinit var textGame: TextView
+    private lateinit var textFood: TextView
+    private lateinit var textSports: TextView
+    private lateinit var textDrink: TextView
 
 
-    private lateinit var auth: FirebaseAuth
+    private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
+    private val binding by lazy { ActivityBoardWriteBinding.inflate(layoutInflater) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_board_write)
+        setContentView(binding.root)
 
-        editContent = findViewById(R.id.editContent)
-        insertBtn  = findViewById(R.id.insertBtn)
-        textDrink = findViewById(R.id.textDrink)
-        textGame = findViewById(R.id.textGame)
-        textFood = findViewById(R.id.textFood)
-        textSports = findViewById(R.id.textSports)
+        editContent = binding.editContent
+        insertBtn = binding.insertBtn
+        textDrink = binding.textDrink
+        textGame = binding.textGame
+        textFood = binding.textFood
+        textSports = binding.textSports
         var category = ""
+        val categoryList = listOf(
+            binding.textDrink,
+            binding.textSports,
+            binding.textFood,
+            binding.textGame,
+        )
 
-        var textArray = arrayOf(textDrink,textGame,textSports,textFood)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        for (i in textArray.indices){
-            textArray[i].setOnClickListener {
-                when(i){
-                    0 -> {
-                        category = "술"
-                        textDrink.setTextColor(ContextCompat.getColor(applicationContext!!,R.color.pink))
-                    }
-                    1 -> {
-                        category = "게임"
-                        textGame.setTextColor(ContextCompat.getColor(applicationContext!!,R.color.pink))
-                    }
-                    2 -> {
-                        category = "운동"
-                        textSports.setTextColor(ContextCompat.getColor(applicationContext!!,R.color.pink))
-                    }
-                    3 -> {
-                        category = "식사"
-                        textFood.setTextColor(ContextCompat.getColor(applicationContext!!,R.color.pink))
-                    }
+
+
+        categoryList.forEach { textView ->
+            val remainList = categoryList.filter { it != textView }
+
+            textView.setOnClickListener {
+
+                it.isSelected = !(it.isSelected)
+                remainList.forEach { it.isSelected = false }
+                category = if (it.isSelected) {
+                    textView.text.toString()
+                } else {
+                    ""
                 }
+                insertBtn.isEnabled =
+                    editContent.text.toString().isNotEmpty() && category.isNotEmpty()
             }
         }
 
-//        textGame.setOnClickListener {
-//            category = "게임"
-//            textGame.setTextColor(ContextCompat.getColor(applicationContext!!,R.color.pink))
-//        }
+        insertBtn.isEnabled = false
 
+        editContent.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
-        auth = FirebaseAuth.getInstance()
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                insertBtn.isEnabled =
+                    editContent.text.toString().isNotEmpty() && category.isNotEmpty()
+                editContent.isSelected = editContent.text.toString().isNotEmpty()
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+        })
 
         insertBtn.setOnClickListener {
             val title = category
@@ -83,10 +99,19 @@ class BoardWriteActivity : AppCompatActivity() {
 
             FBRef.boardRef
                 .push()
-                .setValue(BoardModel(title,content,uid,time))
-            Toast.makeText(this,"게시글 입력 완료", Toast.LENGTH_LONG).show()
+                .setValue(BoardModel(title, content, uid, time))
+            Toast.makeText(this, "게시글 입력 완료", Toast.LENGTH_LONG).show()
             finish()
 
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

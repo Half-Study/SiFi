@@ -2,6 +2,7 @@ package com.example.sifi.profileaddsetting
 
 import android.content.Intent
 import android.os.Bundle
+import android.telecom.Call
 import android.util.Log
 import android.view.MenuItem
 import androidx.activity.OnBackPressedCallback
@@ -34,7 +35,8 @@ class ProfileSettingActivity : AppCompatActivity() {
     private val fragmentList: List<Fragment> = listOf(
         SexFragment(),
         RegionFragment(),
-        NicknameFragment(),
+        NameFragment(),
+        CallFragment(),
         JobFragment(),
         HobbyFragment(),
         MBTIFragment(),
@@ -117,11 +119,14 @@ class ProfileSettingActivity : AppCompatActivity() {
             }
             5 -> {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
-                binding.nextBtn.isEnabled = true
             }
             6 -> {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
-                val mbtiFragment = fragmentList[5] as MBTIFragment
+                binding.nextBtn.isEnabled = true
+            }
+            7 -> {
+                Log.d("daeYoung", "cursor는 ${cursor}번째")
+                val mbtiFragment = fragmentList[6] as MBTIFragment
 
                 lifecycleScope.launch {
                     mbtiFragment.withStarted {
@@ -136,20 +141,21 @@ class ProfileSettingActivity : AppCompatActivity() {
                     }
                 }
             }
-            7 -> {
+            8 -> {
                 Log.d("daeYoung", "cursor는 ${cursor}번째")
             }
-            8 -> { Log.d("daeYoung", "cursor는 ${cursor}번째") }
-            9 -> {
+            9 -> { Log.d("daeYoung", "cursor는 ${cursor}번째") }
+            10 -> {
                 val list = userData.values.toList()[0]
                 val user = User(
-                    userData.values.toList()[0][0],
-                    userData.values.toList()[1][0],
-                    userData.values.toList()[2][0],
-                    userData.values.toList()[3][0],
-                    userData.values.toList()[4],
-                    userData.values.toList()[5][0],
-                    userData.values.toList()[6][0],
+                    sex = userData.values.toList()[0][0],
+                    region = userData.values.toList()[1][0],
+                    nickname = userData.values.toList()[2][0],
+                    call = userData.values.toList()[3][0],
+                    job = userData.values.toList()[4][0],
+                    hobby = userData.values.toList()[5],
+                    mbti = userData.values.toList()[6][0],
+                    introduce = userData.values.toList()[7][0],
 
                 )
                 Log.d("daeYoung", "uid: ${uid}")
@@ -206,6 +212,10 @@ class ProfileSettingActivity : AppCompatActivity() {
                 userData[key] = value
                 Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
             }
+            "call" -> {
+                userData[key] = value
+                Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
+            }
             "job" -> {
                 userData[key] = value
                 Log.d("daeYoung", "key: ${data.keys}, value: ${data.values}, userData: $userData")
@@ -230,8 +240,8 @@ class ProfileSettingActivity : AppCompatActivity() {
 
     }
 
-    fun getValue(data: Map<String, String>) = data.values.toList()
-    fun getKey(data: Map<String, String>) = data.keys.toList()[0]
+    private fun getValue(data: Map<String, String>) = data.values.toList()
+    private fun getKey(data: Map<String, String>) = data.keys.toList()[0]
 
 }
 

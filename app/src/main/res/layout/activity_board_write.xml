@@ -7,90 +7,109 @@
     android:orientation="vertical"
     tools:context=".Board.BoardWriteActivity">
 
-    <ImageView
-        android:id="@+id/backImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_arrow_back_24"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:padding="16dp">
 
         <TextView
-            android:layout_marginLeft="20dp"
             android:text="카테고리"
-            android:textColor="@drawable/selector_text"
-            android:textSize="20dp"
+            android:textColor="@color/main_blue"
+            android:textSize="27dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
 
         <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/textDrink"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/black_round"
-                android:layout_marginLeft="20dp"
-                android:text="술"
+                android:background="@drawable/selector_category_button"
+                android:text="음주"
+                android:textStyle="bold"
                 android:textColor="@drawable/selector_text"
-                android:textSize="20sp" />
+                android:textSize="16sp"
+                android:padding="6dp"/>
 
             <TextView
                 android:id="@+id/textSports"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/black_round"
+                android:background="@drawable/selector_category_button"
                 android:textColor="@drawable/selector_text"
                 android:text="운동"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:padding="6dp" />
 
             <TextView
                 android:id="@+id/textFood"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/black_round"
+                android:background="@drawable/selector_category_button"
                 android:text="식사"
+                android:textStyle="bold"
                 android:textColor="@drawable/selector_text"
-                android:textSize="20sp" />
+                android:textSize="16sp"
+                android:padding="6dp" />
 
             <TextView
                 android:id="@+id/textGame"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/black_round"
+                android:background="@drawable/selector_category_button"
                 android:text="게임"
+                android:textStyle="bold"
                 android:textColor="@drawable/selector_text"
-                android:textSize="20sp" />
+                android:textSize="16sp"
+                android:padding="6dp"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/haha"
+                android:gravity="end" />
 
         </LinearLayout>
 
         <EditText
             android:id="@+id/editContent"
             android:layout_width="match_parent"
-            android:background="@drawable/black_round"
+            android:background="@drawable/selector_category_edittext"
             android:layout_height="100dp"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:padding="8dp"
             android:hint="내용" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/insertBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:text="등록"
-            android:textColor="@drawable/selector_text"/>
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:background="@drawable/selector_mbti_button"
+            android:textColor="#FFFFFF"/>
 
 
 
