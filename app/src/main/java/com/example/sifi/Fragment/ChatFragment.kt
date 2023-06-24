@@ -37,6 +37,7 @@ class ChatFragment : Fragment() {
         var userName: String = ""
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

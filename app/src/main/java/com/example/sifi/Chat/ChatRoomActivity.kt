@@ -2,6 +2,7 @@ package com.example.sifi.Chat
 
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sifi.Utils.FBAuth
 import com.example.sifi.databinding.ActivityChatRoomBinding
 import com.example.sifi.databinding.ItemMsgListBinding
+import com.example.sifi.model.Message
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -62,6 +64,8 @@ class ChatRoomActivity: AppCompatActivity() {
                 for (item in snapshot.children) {
                     item.key
                     item.getValue(com.example.sifi.model.Message::class.java)?.let { msg ->
+                        Log.d("daeYoung", "Message 클래스: $msg")
+
                         msgList.add(msg)        // 메시지 목록에 추가
                     }
                 }
@@ -78,13 +82,21 @@ class ChatRoomActivity: AppCompatActivity() {
     fun sendMsg() {
         with(binding) {
             if (editMsg.text.isNotEmpty()) {
-                val message = com.example.sifi.model.Message(
-                    editMsg.text.toString()
-                )
                 val msgId = msgRef.push().key!!
-                message.id = msgId
-                msgRef.child(msgId).setValue(message)
-                editMsg.setText("")     // 메시지 전송 후 입력 필드 초기화화            }
+
+                val message = Message(
+                    msg = editMsg.text.toString(),
+                    id = msgId
+                )
+                database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
+                    Log.d("daeYoung", "Got value: ${it.value}")
+                    Log.d("daeYoung", "userId: $userUid")
+                    message.userName = it.value.toString()
+                    msgRef.child(msgId).setValue(message)
+                 editMsg.setText("")     // 메시지 전송 후 입력 필드 초기화화            }
+                }
+
+
             }
         }
     }
@@ -116,10 +128,11 @@ class MsgListAdapter(val msgList: MutableList<com.example.sifi.model.Message>) :
         fun setMsg(msg: com.example.sifi.model.Message) {
             val database = Firebase.database
             val userUid = FBAuth.getUid()
-            val userName = database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
-                binding.textName.text = it.value.toString()
-            }
-            binding.textMsg.setText(msg.msg)
+//            val userName = database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
+//                binding.textName.text = it.value.toString()
+//            }
+            binding.textName.text = msg.userName
+            binding.textMsg.text = msg.msg
             val formattedTimestamp = (itemView.context as ChatRoomActivity).getFormattedTimestamp(msg.timestamp)
             binding.textDate.text = formattedTimestamp
         }
