@@ -62,6 +62,7 @@ class ChatRoomActivity: AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 msgList.clear()
                 for (item in snapshot.children) {
+                    item.key
                     item.getValue(com.example.sifi.model.Message::class.java)?.let { msg ->
                         Log.d("daeYoung", "Message 클래스: $msg")
 
