@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class ChatFragment : Fragment() {
@@ -138,7 +139,7 @@ class ChatRoomListAdapter(val roomList: MutableList<Room>) :
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var mRoom: Room
-        val roomNameTextView: TextView = itemView.findViewById(R.id.RoomName)
+//        val roomNameTextView: TextView = itemView.findViewById(R.id.RoomName)
         val partnerNameTextView: TextView = itemView.findViewById(R.id.PartnerName)
 
         init {
@@ -154,7 +155,7 @@ class ChatRoomListAdapter(val roomList: MutableList<Room>) :
         fun setRoom(room: Room) {
             this.mRoom = room
 //            itemView.findViewById<TextView>(R.id.RoomName).setText(room.title)
-            roomNameTextView.text = room.title
+//            roomNameTextView.text = room.title
             partnerNameTextView.text = room.partner
         }
     }
