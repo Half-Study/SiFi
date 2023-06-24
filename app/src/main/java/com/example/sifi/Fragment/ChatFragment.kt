@@ -45,9 +45,10 @@ class ChatFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_chat_list, container, false)
 
-        var userName = database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
-            Log.i("firebase", "Got value ${it.value}")
-        }.toString()
+        var userName = database.getReference("users").child("$userUid").child("nickname").get()
+            .addOnSuccessListener {
+                Log.i("firebase", "Got value ${it.value}")
+            }.toString()
 
         val btnCreate = view.findViewById<Button>(R.id.btnCreate)
         btnCreate.setOnClickListener { openCreateRoom() }
@@ -112,7 +113,11 @@ class ChatFragment : Fragment() {
         dialog.show()
     }
 
-    private fun createRoom(title: String, partner : String, userName : String) {       // 인자로 받은 것을 room 데이터 클래스에기록해야겠지
+    private fun createRoom(
+        title: String,
+        partner: String,
+        userName: String
+    ) {       // 인자로 받은 것을 room 데이터 클래스에기록해야겠지
         val room = Room(title, partner, userName)
         val roomId = roomsRef.push().key!!
         room.id = roomId
@@ -139,7 +144,8 @@ class ChatRoomListAdapter(val roomList: MutableList<Room>) :
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var mRoom: Room
-//        val roomNameTextView: TextView = itemView.findViewById(R.id.RoomName)
+
+        //        val roomNameTextView: TextView = itemView.findViewById(R.id.RoomName)
         val partnerNameTextView: TextView = itemView.findViewById(R.id.PartnerName)
 
         init {
