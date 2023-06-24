@@ -131,7 +131,7 @@ class MsgListAdapter(val msgList: MutableList<com.example.sifi.model.Message>) :
 //            val userName = database.getReference("users").child("$userUid").child("nickname").get().addOnSuccessListener {
 //                binding.textName.text = it.value.toString()
 //            }
-            binding.textName.text = msg.userName
+            binding.textName.text = "${msg.userName}:"
             binding.textMsg.text = msg.msg
             val formattedTimestamp = (itemView.context as ChatRoomActivity).getFormattedTimestamp(msg.timestamp)
             binding.textDate.text = formattedTimestamp
